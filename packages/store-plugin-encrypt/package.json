@@ -1,0 +1,40 @@
+{
+    "name": "@cp0/store-plugin-encrypt",
+    "version": "0.3.1",
+    "description": "Store Plugin: 提供 Vue DevTool 支持.",
+    "keywords": [
+        "@cp0/store",
+        "StoreEncryptPlugin"
+    ],
+    "main": "dist/cjs/index.js",
+    "module": "dist/es/index.js",
+    "typings": "typings/index.d.ts",
+    "sideEffects": false,
+    "author": {
+        "name": "halo951",
+        "url": "https://github.com/halo951"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/halo951/store.git"
+    },
+    "bugs": {
+        "url": "https://github.com/halo951/store/issues"
+    },
+    "homepage": "https://github.com/halo951/store#readme",
+    "license": "MIT",
+    "scripts": {
+        "clean": "rimraf dist && rimraf typings",
+        "build": "yarn clean && rollup --config rollup.config.ts --configPlugin typescript2",
+        "lint:fix": "prettier -w **.ts **.md **.json"
+    },
+    "dependencies": {
+        "crypto-js": "^4.1.1"
+    },
+    "peerDependencies": {
+        "@cp0/store": "*"
+    },
+    "devDependencies": {
+        "@types/crypto-js": "^4.1.1"
+    }
+}

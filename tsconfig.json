@@ -1,0 +1,39 @@
+{
+    "include": ["packages/*/src/**/*.ts", "packages/*/__tests__/**/*.ts"],
+    "exclude": [],
+    "compilerOptions": {
+        "lib": ["esnext", "DOM"],
+        "types": ["node", "jest"],
+        "target": "esnext",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "jsx": "preserve",
+        "paths": {
+            "@cp0/*": ["./packages/*/src"]
+        },
+        "sourceMap": false,
+        "noEmit": true,
+        "noEmitHelpers": true,
+        "removeComments": false,
+        "importHelpers": true,
+        "isolatedModules": true,
+        "resolveJsonModule": true,
+
+        "strict": true,
+        "noUnusedLocals": true,
+        "strictNullChecks": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "noImplicitReturns": false,
+        "allowSyntheticDefaultImports": true,
+        "noEmitOnError": true,
+        "skipDefaultLibCheck": true,
+        "skipLibCheck": true,
+
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "esModuleInterop": true,
+        "allowJs": false,
+        "declaration": true
+    }
+}

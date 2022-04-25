@@ -1,0 +1,6 @@
+/** @cp0/store-plugin-observer
+ *
+ * @author halo951
+ * @license MIT
+ */
+"use strict";var t;Object.defineProperty(exports,"__esModule",{value:!0}),function(t){t.ON_ACTION_BEFORE="onActionBefore",t.ON_ACTION_AFTER="onActionAfter",t.ON_COMMIT_FILTER="onCommitFilter",t.ON_PATCH_FILTER="onPatchFilter"}(t||(t={}));const e=["$clear","$patch","$commit","state","parent","initData","getData","PERSISTENCE_KEYS","storage","__parent__"],o=[],r=(t,e)=>{let r=[];e.modules&&(r=e.modules instanceof Array?[...e.modules]:[e.modules]),o.push({event:t,modules:r,options:e})};exports.StoreObserverPlugin=class{constructor(t){if(!t)return;let e,o;for(const s in t)e=s,o=t[e],r(e,o)}onReady(o){const r=this;for(const s of o.modules)o[s]=new Proxy(o[s],{get(o,s,n){if(/\$commit/.test(s)&&r.emit(t.ON_COMMIT_FILTER),/\$patch/.test(s)&&r.emit(t.ON_PATCH_FILTER),e.includes(s))return Reflect.get(o,s,n);r.emit(t.ON_ACTION_BEFORE)}})}emit(e){const r=o.filter((t=>t.event===e)).map((t=>t.options));if(e===t.ON_COMMIT_FILTER)for(const t of r){const{handler:e}=t;console.log(e)}}},exports.registerActionAfterEvent=e=>{r(t.ON_ACTION_BEFORE,e)},exports.registerActionBeforeEvent=e=>{r(t.ON_ACTION_BEFORE,e)},exports.registerCommitFilter=e=>{r(t.ON_COMMIT_FILTER,e)},exports.registerPatchFilter=e=>{r(t.ON_PATCH_FILTER,e)};

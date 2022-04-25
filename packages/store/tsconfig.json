@@ -1,0 +1,10 @@
+{
+    "include": ["src"],
+    "extends": "../../tsconfig.json",
+    "compilerOptions": {
+        "baseUrl": ".",
+        "outDir": "dist/es",
+        "declarationDir": "typings",
+        "noEmit": false
+    }
+}

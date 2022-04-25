@@ -1,0 +1,49 @@
+{
+    "name": "@cp0/store-plugin-devtool",
+    "version": "0.3.1",
+    "description": "Store Plugin: 提供 Vue DevTool 支持.",
+    "keywords": [
+        "@cp0/store",
+        "StoreDevtoolPlugin"
+    ],
+    "main": "dist/cjs/index.js",
+    "module": "dist/es/index.js",
+    "typings": "typings/index.d.ts",
+    "sideEffects": false,
+    "author": {
+        "name": "halo951",
+        "url": "https://github.com/halo951"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/halo951/store.git"
+    },
+    "bugs": {
+        "url": "https://github.com/halo951/store/issues"
+    },
+    "homepage": "https://github.com/halo951/store#readme",
+    "license": "MIT",
+    "scripts": {
+        "clean": "rimraf dist && rimraf typings",
+        "build": "yarn clean && rollup --config rollup.config.ts --configPlugin typescript2",
+        "lint:fix": "prettier -w **.ts **.md **.json"
+    },
+    "dependencies": {
+        "@vue/devtools-api": "^6.0.8",
+        "vue-demi": "^0.12.5"
+    },
+    "peerDependencies": {
+        "@vue/composition-api": "^1.0.0-rc.1",
+        "vue": "^2.0.0 || >=3.0.0",
+        "@cp0/store": "*"
+    },
+    "peerDependenciesMeta": {
+        "@vue/composition-api": {
+            "optional": true
+        }
+    },
+    "devDependencies": {
+        "vue": "^3.2.33",
+        "vue2": "npm:vue@2"
+    }
+}
