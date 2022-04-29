@@ -27,15 +27,8 @@ describe('test.commit', () => {
     })
 
     test('commit | $commit filter key test', () => {
-        let success: boolean = false
-        try {
-            store.test.commit('not-defined', 'val')
-            success = true
-        } catch (e) {
-            //
-        } finally {
-            expect(success).toBe(false)
-        }
+        const test = () => store.test.commit('non', 'val')
+        expect(test).toThrow(new Error("$store.test 'non' is not defined."))
     })
 
     test('commit | $commit change data use `object-path`', () => {

@@ -1,3 +1,4 @@
+import { IData } from '../src/intf/data.intf'
 import { Store } from './store'
 
 describe('test.install', () => {
@@ -6,6 +7,11 @@ describe('test.install', () => {
     beforeEach(() => {
         // impl and install
         store = new Store()
+    })
+    test('install | verification initData result', () => {
+        let data: IData = store.test.initData()
+        expect(typeof data).toBe('object')
+        expect(Object.keys(data) instanceof Array).toBe(true)
     })
 
     test('install | initData()', () => {
@@ -22,14 +28,8 @@ describe('test.install', () => {
 
     test('install | life is uninstall, visit StoreModule.state is undefined', () => {
         expect(store.test['state']).toBe(undefined)
-        let throwError: boolean = false
-        try {
-            store.test.a
-        } catch (error) {
-            throwError = true
-        } finally {
-            expect(throwError).toBe(true)
-        }
+        const getA = () => store.test.a
+        expect(getA).toThrow()
     })
 
     test('install | commit security test when store is not initialized', () => {

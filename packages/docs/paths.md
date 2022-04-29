@@ -1,10 +1,13 @@
 # xx
 
+> 备选名: fdesgin flat-design flat-design-store
+
 -   introduction - 介绍
     -   What is? - 简介
     -   install - 安装
     -   Getting Started - 简单使用
     -   Diff - 对比 (工具对比, API 范式对比)
+    -   framework - 架构设计
 -   core - Core Concepts | 核心概念
     -   coding - 如何组织代码
     -   StoreManager - store 仓库
@@ -31,10 +34,28 @@
     -   life - 生命周期模型
     -   adapter - 适配器
     -   inject - StoreModule 能力注入
-    -
--   ext - 扩展
-    -   贡献插件
+    -   size - 包体积
+-   contribute - 贡献
+    -   impl - 了解 @cp0/store 实现原理.
+    -   adapter - 扩展适配器
+    -   plugin - 扩展插件
+    -   proposal - 改进&建议
 -   API Reference - api 描述
+
+    -   store -
+    -   IStorePlugin
+
+-   答疑
+    -   关于 `composition api` 设计
+    -   对于 Ts 装饰器等具备不确定性提案的想法
+    -   为什么移除 `dispatch`
+    -   action 的行为监控设计
+    -   观察者模式
+    -
 -   example - 示例代码
--
+    -   花式使用
+        -   createStore
+        -   多 Store
+        -   通过 Bridge 桥接外部数据源
+        -
 -

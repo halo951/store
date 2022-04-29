@@ -1,33 +1,25 @@
+import set from 'set-value'
+import { klona } from 'klona'
+
 import type { IStoreCache } from '../intf/cache.intf'
 import type { IStorePlugin } from '../intf/plugin.intf'
-import type { IVuePlugin } from '../intf/vue.intf'
 import type { IData } from '../intf/data.intf'
 import type { IStoreOptions } from '../intf/options.intf'
-import type { IStoreAdapter } from '../intf/adapter.intf'
 import type { Options } from 'set-value'
-
-import set from 'set-value'
-import { isVue2, isVue3 } from 'vue-demi'
-import { klona } from 'klona'
 
 import { StoreModule } from './module'
 import { getFirstPropKey, requiredFunctionDefined } from '../utils'
-import Vue2Adapter from '../adapter/vue2'
-import Vue3Adapter from '../adapter/vue3'
 
 /** StoreManager */
-export abstract class StoreManager implements IVuePlugin {
+export abstract class StoreManager {
     /** store options */
     protected options!: IStoreOptions
-
-    /** store plugins */
-    protected plugins: Array<IStorePlugin> = []
 
     /** 是否初始化完成 */
     private ready?: boolean
 
     /** 缓存/数据源 */
-    private cache: IStoreCache = { keys: {}, data: {} }
+    private readonly cache: IStoreCache = { keys: {}, data: {} }
 
     /** get all module name */
     private get modules(): Array<string> {
@@ -37,21 +29,7 @@ export abstract class StoreManager implements IVuePlugin {
     }
 
     constructor(options?: IStoreOptions) {
-        let adapter!: IStoreAdapter
-
-        if (isVue2) {
-            adapter = Vue2Adapter
-        } else if (isVue3) {
-            adapter = Vue3Adapter
-        }
-
-        this.options = {
-            // default
-            version: '1.0.0',
-            adapter,
-            // custom
-            ...options
-        }
+        this.options = { version: '1.0.0', ...this.options, ...options }
     }
 
     /** 安装
@@ -59,16 +37,14 @@ export abstract class StoreManager implements IVuePlugin {
      * @description 允许脱离 vue 单独使用, 但脱离 vue 使用时, 需要先执行 store.install() 操作.
      * @support 支持 vue2.x, vue3.x, 及独立使用.
      */
-    public install(app?: any, ..._options: any[]): this {
+    public install(app?: any): this {
         this.init()
         // ? 支持抛开vue使用
         if (!app) return this
         // register to target use adapter. basic: vue2, vue3
-        if (this.options.adapter) this.options.adapter.register(this, app)
+        if (this.options.adapter) this.options.adapter.factory(this, app)
         // > emit plugin binded to vue event
-        this.emit((plugin: IStorePlugin, _latest: string, _origin: string) => {
-            plugin.onBindedToVue?.(this, app)
-        })
+        this.emit((plugin: IStorePlugin) => plugin.onBinded?.(this, app))
         return this
     }
 
@@ -79,9 +55,7 @@ export abstract class StoreManager implements IVuePlugin {
     public $clear(specifyModules?: Array<string>): void {
         specifyModules = specifyModules ?? this.modules
 
-        if (!(specifyModules instanceof Array)) {
-            throw new Error('$store.clear() params type need to Arrray<string>.')
-        }
+        if (!(specifyModules instanceof Array)) throw new Error('$store.clear() should be passed into Array.')
 
         let model: StoreModule<this, IData>
         // # 逐个清理, 还原数据
@@ -98,10 +72,7 @@ export abstract class StoreManager implements IVuePlugin {
     private init(): void {
         if (this.ready) return
         // > emit plugin binded to vue event
-        this.emit((plugin: IStorePlugin, latest: string, origin: string) => {
-            plugin.onBeforeInit?.(this)
-            return latest
-        })
+        this.emit((plugin: IStorePlugin) => plugin.onBefore?.(this))
         let model: StoreModule<this, IData>
         // # module init
         for (const moduleName of this.modules) {
@@ -119,23 +90,19 @@ export abstract class StoreManager implements IVuePlugin {
         this.ready = true
 
         // emit store ready event.
-        this.emit((plugin: IStorePlugin, latest: string, origin: string) => {
-            plugin.onReady?.(this)
-            return latest
-        })
+        this.emit((plugin: IStorePlugin) => plugin.onReady?.(this))
     }
 
-    /** generateModuleHash
+    /** calc module hash
      *
      * @description transform origin module name to `module hsah`, and be used for data storage.
      */
-    private generateModuleHash(moduleName: string): string {
+    private generateModuleSign(moduleName: string): string {
         // > transform module hash by plugin
-        const moduleHash: string = this.emit((plugin: IStorePlugin, latest: string, origin: string) => {
-            if (plugin.transformModuleHash) return plugin.transformModuleHash(latest, origin)
+        return this.emit((plugin: IStorePlugin, latest: string, origin: string) => {
+            if (plugin.transformSign) return plugin.transformSign(latest, origin)
             else return latest
         }, moduleName)
-        return moduleHash
     }
 
     /** injectFactory
@@ -202,7 +169,7 @@ export abstract class StoreManager implements IVuePlugin {
 
     /** data prepare */
     private prepare(moduleName: string, model: StoreModule<this, any>): void {
-        const NAME_HASH: string = this.generateModuleHash(moduleName)
+        const NAME_HASH: string = this.generateModuleSign(moduleName)
         // hacker: use ['key'] skip ts check.
         const dataStr: string | null = model['storage']?.getItem(NAME_HASH) ?? null
         const origin: IData = model['initData']()
@@ -230,7 +197,7 @@ export abstract class StoreManager implements IVuePlugin {
 
     /** data persistence */
     private persistence(moduleName: string, model: StoreModule<this, IData>): void {
-        const NAME_HASH = this.generateModuleHash(moduleName)
+        const NAME_HASH = this.generateModuleSign(moduleName)
         const origin = this.cache.data[moduleName]
         const storage: Storage = model['storage']
         const PERSISTENCE_KEYS: Array<string> = model['PERSISTENCE_KEYS']
@@ -270,13 +237,15 @@ export abstract class StoreManager implements IVuePlugin {
 
     /** 向插件推送生命周期变化 */
     private emit<T>(handle: (plugin: IStorePlugin, latest: T, origin: T) => void, origin: any = undefined): any | void {
-        if (!this.plugins || !(this.plugins instanceof Array)) return
-
         // # copy origin data
         let latest: any = klona(origin)
+        // ? if unuse plugin, skip
+        if (!(this.options.plugins instanceof Array)) return latest
 
         // > loop recursion
-        for (const plugin of this.plugins) latest = handle(plugin, latest, origin)
+        for (const plugin of this.options.plugins) {
+            latest = handle(plugin, latest, origin)
+        }
 
         return latest
     }

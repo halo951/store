@@ -3,24 +3,17 @@
     "version": "0.0.0",
     "private": true,
     "scripts": {
-        "docs:dev": "vitepress dev libs",
-        "docs:build": "vitepress build docs",
-        "docs:serve": "vitepress serve docs",
-        "dev": "pnpm gen:lang && vitepress dev .",
-        "build": "vitepress build .",
-        "serve": "vitepress serve .",
-        "clean": "rimraf .vitepress/i18n && rimraf .vitepress/dist",
-        "gen:lang": "rimraf .vitepress/i18n && sucrase-node .vitepress/utils/crowdin-generate.ts",
-        "crowdin:list": "crowdin list project",
-        "crowdin:upload": "crowdin upload sources",
-        "crowdin:us": "crowdin download -l en-US",
-        "crowdin:tw": "crowdin download -l zh-TW",
-        "crowdin:dryrun": "crowdin download --dryrun"
+        "serve": "vuepress dev .",
+        "docs:build": "vuepress build ."
     },
     "dependencies": {
-        "@vueuse/core": "^7.6.1",
-        "pinia": "^2.0.0",
-        "vitepress": "^0.22.3"
+        "@vuepress/plugin-docsearch": "^2.0.0-beta.41",
+        "@vuepress/plugin-prismjs": "^2.0.0-beta.41",
+        "@vuepress/plugin-search": "^1.9.7",
+        "@vuepress/plugin-toc": "^2.0.0-beta.41",
+        "@vuepress/shared-utils": "^1.9.7"
     },
-    "devDependencies": {}
+    "devDependencies": {
+        "vuepress": "^2.0.0-beta.41"
+    }
 }

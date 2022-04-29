@@ -11,10 +11,14 @@ const config: Config.InitialOptions = {
     collectCoverage: false,
     coverageDirectory: '.coverage',
     coverageReporters: ['html', 'lcov', 'text'],
-    collectCoverageFrom: ['packages/store/src/**/*.ts', 'packages/store-plugin-*/src/**/*.ts'],
+    collectCoverageFrom: ['packages/store/src/**/*.ts', 'packages/store-*/src/**/*.ts'],
     // ignore jest
     coveragePathIgnorePatterns: ['/node_modules/', '/intf/', '/store-plugin-'],
-    testMatch: ['<rootDir>/packages/store/__tests__/*.test.ts'],
+    coverageProvider: 'v8',
+    testMatch: [
+        '<rootDir>/packages/store/__tests__/*.test.ts',
+        '<rootDir>/packages/store-adapter-*/__tests__/*.test.ts'
+    ],
     moduleNameMapper: {
         '^@cp0/(.*?)$': '<rootDir>/packages/$1/src'
     },

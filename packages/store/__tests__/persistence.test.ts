@@ -31,6 +31,7 @@ describe('test.persistence', () => {
     beforeEach(() => {
         memory = new MemoryStorage()
         store = new Store({ version: VERSION })
+        expect(store.test['storage']).toBe(memory)
     })
 
     test('persistence | prepare data by initData', () => {

@@ -6,8 +6,7 @@ import path from 'path'
 class Main {
     /** build all packages */
     async setup() {
-        let projects = glob.sync('./packages/store*/', { absolute: true }).sort().reverse()
-        projects = projects.filter((p) => !/store-plugin-listen/.test(p))
+        let projects = glob.sync('./packages/store*/', { absolute: true }).sort()
         this.build(projects, null)
     }
     build(projects, appoint) {
@@ -16,7 +15,11 @@ class Main {
         rimraf.sync(`packages/${range}/typings/`)
         for (let cwd of projects) {
             console.log('> build: ', path.basename(cwd))
-            child_process.execSync('yarn build', { cwd })
+            try {
+                child_process.execSync('yarn build', { cwd })
+            } catch (error) {
+                console.log('erro: build failure', path.basename(cwd))
+            }
         }
     }
 }

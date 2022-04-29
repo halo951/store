@@ -1,5 +1,3 @@
-import type { App as VueApp, Vue2 } from 'vue-demi'
-
 import type { StoreManager } from '../index'
 
 /** store 插件 接口定义
@@ -8,7 +6,7 @@ import type { StoreManager } from '../index'
  */
 export interface IStorePlugin {
     /** 初始化(前置)事件, 首次触发 store.install() 时触发. */
-    onBeforeInit?(store: StoreManager): void
+    onBefore?(store: StoreManager): void
 
     /** 初始化完成事件 */
     onReady?(store: StoreManager): void
@@ -20,9 +18,9 @@ export interface IStorePlugin {
      * @param {StorageManager} store
      * @param {*} app in Vue2, app is Vue. in Vue3 app is createApp() result.
      */
-    onBindedToVue?(store: StoreManager, app: typeof Vue2 | VueApp): void
+    onBinded?(store: StoreManager, app: any): void
 
-    /** 自定义模块签名
+    /** 处理模块签名
      *
      * @description 用于自定义持久化模块签名
      *
@@ -31,9 +29,9 @@ export interface IStorePlugin {
      *
      * @returns {string} 转换过的签名
      */
-    transformModuleHash?(moduleName: string, originName?: string): string
+    transformSign?(moduleName: string, originName?: string): string
 
-    /** 读取持久化数据处理
+    /** 预处理数据
      *
      * @description 在准备数据阶段, 对读取到的持久化数据进行还原操作
      *

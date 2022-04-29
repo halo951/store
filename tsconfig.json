@@ -1,5 +1,5 @@
 {
-    "include": ["packages/*/src/**/*.ts", "packages/*/__tests__/**/*.ts"],
+    "include": ["packages/*/src/**/*.ts", "packages/*/__tests__/**/*.ts", "meta.ts"],
     "exclude": [],
     "compilerOptions": {
         "lib": ["esnext", "DOM"],

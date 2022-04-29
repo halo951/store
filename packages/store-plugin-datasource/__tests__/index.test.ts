@@ -5,14 +5,7 @@ describe('store.StoreDatasourcePlugin', () => {
         store = new Store()
     })
     test('verification plug-in validity', () => {
-        let throwError: boolean = false
-        try {
-            store.install()
-        } catch (error) {
-            throwError = true
-        } finally {
-            expect(throwError).toBe(false)
-        }
+        expect(store.install()).not.toThrow()
     })
     test('verification plug-in change state', () => {
         // change string

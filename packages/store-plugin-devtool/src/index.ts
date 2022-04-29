@@ -9,6 +9,8 @@ import {
     PluginSettingsItem,
     setupDevtoolsPlugin
 } from '@vue/devtools-api'
+import { createObjectEmitter } from './utils'
+import { klona } from 'klona'
 
 type TDevToolApi = DevtoolsPluginApi<ExtractSettingsTypes<Record<string, PluginSettingsItem>>>
 
@@ -26,6 +28,19 @@ const PLUGIN_STORE_NODE_TREE_LABEL: string = 'Store'
 const PLUGIN_STORE_TIMELINE_ID: string = 'org.d1t.store.NodeTree'
 const PLUGIN_STORE_TIMELINE_LABEL: string = 'Store Timeline'
 
+const LOCK_PROPERTIES: Array<string> = [
+    '$clear',
+    '$patch',
+    '$commit',
+    'state',
+    'parent',
+    'initData',
+    'getData',
+    'PERSISTENCE_KEYS',
+    'storage',
+    '__parent__'
+]
+
 /** @cp0/store vue-devtool 支持
  *
  * @description 基于 vuejs/devtool 6.x 版本实现
@@ -35,9 +50,6 @@ const PLUGIN_STORE_TIMELINE_LABEL: string = 'Store Timeline'
  *
  */
 export class StoreDevtoolPlugin implements IStorePlugin {
-    /** store 实例 */
-    private store!: StoreManager
-
     /** dev tool api 实例 */
     // private api!: TDevToolApi
 
@@ -47,7 +59,6 @@ export class StoreDevtoolPlugin implements IStorePlugin {
      * @description 通过 DevTool 提供的 timeline, custom inspector 能力实现
      */
     onBindedToVue(store: StoreManager, app: typeof Vue2 | VueApp): void {
-        this.store = store
         setupDevtoolsPlugin(
             {
                 id: 'org.d1t.store',
@@ -60,14 +71,14 @@ export class StoreDevtoolPlugin implements IStorePlugin {
                 settings: {} // 用户设置
             },
             (api: TDevToolApi): void => {
-                this.registerNodeTree(api)
-                this.registerTimeline(api)
+                this.registerNodeTree(store, api)
+                this.registerTimeline(store, api)
             }
         )
     }
 
     /** 注册 node tree 功能 */
-    private registerNodeTree(api: TDevToolApi): void {
+    private registerNodeTree(store: StoreManager, api: TDevToolApi): void {
         // > 添加 custom inspector, 支持预览 store node tree
         api.addInspector({
             id: PLUGIN_STORE_NODE_TREE_ID,
@@ -84,7 +95,7 @@ export class StoreDevtoolPlugin implements IStorePlugin {
             // ? filter this app
             if (!isCurrent) return
             // store module tree data
-            const moduleTreeData: Array<CustomInspectorNode> = this.generateStoreCacheNodeTree(payload.filter)
+            const moduleTreeData: Array<CustomInspectorNode> = this.generateStoreCacheNodeTree(store, payload.filter)
             // out
             payload.rootNodes = [
                 // append mananger
@@ -107,13 +118,13 @@ export class StoreDevtoolPlugin implements IStorePlugin {
             const [type, moduleName]: Array<string> = payload.nodeId.split('.')
             switch (type) {
                 case 'manager':
-                    payload.state = this.generateManagerState()
+                    payload.state = this.generateManagerState(store)
                     return
                 case 'modules':
                     payload.state = {}
                     return
                 case 'module':
-                    if (moduleName) payload.state = this.generateModuleState(moduleName)
+                    if (moduleName) payload.state = this.generateModuleState(store, moduleName)
                     else payload.state = {}
                     return
                 default:
@@ -130,12 +141,12 @@ export class StoreDevtoolPlugin implements IStorePlugin {
                 const [, moduleName] = payload.path
                 const { value } = payload.state
                 const path: Array<any> = payload.path.slice(2)
-                ;(this.store as any)[moduleName].commit(path, value)
+                ;(store as any)[moduleName].commit(path, value)
             }
             if (payload.type === 'state') {
                 const moduleName: string = payload.nodeId.split(/\./)[1]
                 const { value } = payload.state
-                ;(this.store as any)[moduleName].commit(payload.path, value)
+                ;(store as any)[moduleName].commit(payload.path, value)
             }
         })
     }
@@ -143,8 +154,8 @@ export class StoreDevtoolPlugin implements IStorePlugin {
     /** 生成当前 store cache 的 nodeTree 集合
      * @param {string|undefined} query 过滤条件
      */
-    private generateStoreCacheNodeTree(query: string | undefined): Array<CustomInspectorNode> {
-        const cache: IStoreCache = this.store['cache']
+    private generateStoreCacheNodeTree(store: StoreManager, query: string | undefined): Array<CustomInspectorNode> {
+        const cache: IStoreCache = store['cache']
         const rootNodes: Array<string> = Object.keys(cache.keys)
 
         return rootNodes
@@ -155,26 +166,26 @@ export class StoreDevtoolPlugin implements IStorePlugin {
                 if (!query) return true
                 const reg: RegExp = new RegExp(query)
                 if (reg.test(node.label)) return true
-                if (reg.test(JSON.stringify(this.generateModuleState(node.label)))) return true
+                if (reg.test(JSON.stringify(this.generateModuleState(store, node.label)))) return true
                 return false
             })
     }
 
     /** 生成 StoreManager preview 属性 */
-    private generateManagerState(): CustomInspectorState {
-        const plugins: Array<IStorePlugin> = this.store['plugins']
+    private generateManagerState(store: StoreManager): CustomInspectorState {
+        const plugins: Array<IStorePlugin> = store['plugins']
         return {
             manager: [
-                { key: 'version', value: this.store['options'].version },
-                { key: 'cache', value: this.store['cache'].data, editable: true },
+                { key: 'version', value: store['options'].version },
+                { key: 'cache', value: store['cache'].data, editable: true },
                 { key: 'plugins', value: plugins.map((plugin) => (plugin as any).__proto__.constructor.name) }
             ]
         }
     }
 
     /** 生成 module state */
-    private generateModuleState(moduleName: string): CustomInspectorState {
-        const module: StoreModule<StoreManager, IData> = (this.store as any)[moduleName]
+    private generateModuleState(store: StoreManager, moduleName: string): CustomInspectorState {
+        const module: StoreModule<StoreManager, IData> = (store as any)[moduleName]
         const state = module['state']
         const props = Object.getOwnPropertyNames((module as any).__proto__).map((key) => {
             return { key, value: null }
@@ -202,13 +213,111 @@ export class StoreDevtoolPlugin implements IStorePlugin {
         }
     }
     /** 安装 时间旅行 功能 */
-    private registerTimeline(api: TDevToolApi): void {
-        // this.api = api
+    private registerTimeline(store: StoreManager, api: TDevToolApi): void {
+        // > 创建快照
+        const createSnapshot = (): { [key: string]: IData } => klona(store['cache'].data)
         // > 添加 timeline, 支持时间旅行功能
         api.addTimelineLayer({
             id: PLUGIN_STORE_TIMELINE_ID,
             label: PLUGIN_STORE_TIMELINE_LABEL,
             color: 0xea3ced
         })
+        // > 创建 object change emitter, 监听状态变化
+        createObjectEmitter(store['cache'].data, (target: any, key: string | Symbol, value: any) => {
+            // > push event
+            api.addTimelineEvent({
+                layerId: PLUGIN_STORE_TIMELINE_ID,
+                event: {
+                    time: Date.now(),
+                    data: {
+                        change: {
+                            target,
+                            key,
+                            value
+                        },
+                        snapshot: createSnapshot()
+                    },
+                    logType: 'default',
+                    meta: {},
+                    title: 'state change',
+                    subtitle: ''
+                }
+            })
+        })
+        // 创建 actions 行为调用监听
+        let createInvokeActionLog = (options: IActionLog) => {
+            const { moduleName, action, beforeSnapshot, afterSnapshot, error, sync } = options
+            api.addTimelineEvent({
+                layerId: PLUGIN_STORE_TIMELINE_ID,
+                event: {
+                    time: Date.now(),
+                    logType: !error ? 'default' : 'error',
+                    title: 'invoke action',
+                    subtitle: moduleName + '.' + action + ' - is' + !error ? 'success' : 'failure',
+                    data: {
+                        module: moduleName,
+                        action,
+                        sync,
+                        beforeSnapshot,
+                        afterSnapshot
+                    }
+                }
+            })
+        }
+        // # module init
+        for (const moduleName of store['modules']) {
+            ;(store as any)[moduleName] = new Proxy((store as any)[moduleName], {
+                get(mod: any, p: string, receive: any) {
+                    if (LOCK_PROPERTIES.includes(p)) return Reflect.get(mod, p, receive)
+                    if (typeof mod[p] !== 'function') return Reflect.get(mod, p, receive)
+                    let origin: Function = mod[p]
+                    let res: any
+                    let options: IActionLog = {
+                        moduleName,
+                        action: p,
+                        sync: true,
+                        beforeSnapshot: createSnapshot(),
+                        afterSnapshot: createSnapshot(),
+                        error: null,
+                        res: undefined
+                    }
+                    return function () {
+                        try {
+                            res = origin.call(mod, arguments)
+                            if (res instanceof Promise) {
+                                res.catch((e) => {
+                                    options.error = e
+                                    throw e
+                                }).finally(() => {
+                                    options.sync = false
+                                    options.afterSnapshot = createSnapshot()
+                                    createInvokeActionLog(options)
+                                })
+                            } else {
+                                options.res = res
+                                options.afterSnapshot = createSnapshot()
+                                createInvokeActionLog(options)
+                            }
+                            return res
+                        } catch (error) {
+                            options.afterSnapshot = createSnapshot()
+                            options.error = error as Error
+                            createInvokeActionLog(options)
+                            throw error
+                        }
+                    }
+                }
+            })
+        }
     }
+}
+
+interface IActionLog {
+    moduleName: string
+    action: string
+    sync: boolean
+    beforeSnapshot: any
+    afterSnapshot: any
+    error?: Error | null | undefined
+    res?: any
 }

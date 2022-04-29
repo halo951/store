@@ -15,7 +15,7 @@ export class StoreDatasourcePlugin implements IStorePlugin {
         this.options = options
     }
 
-    onBeforeInit(store: StoreManager): void {
+    onBefore(store: StoreManager): void {
         // ? 参数检查
         if (typeof this.options?.factory !== 'function') {
             throw new Error("StoreDatasourcePlugin | This 'factory' is not a function.")

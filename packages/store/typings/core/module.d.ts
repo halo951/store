@@ -1,19 +1,19 @@
-import type { IData } from '../intf/data.intf'
-import type { Options } from 'set-value'
+import type { IData } from '../intf/data.intf';
+import type { Options } from 'set-value';
 /** StoreModule */
 export declare abstract class StoreModule<Parent, Data extends IData> {
-    private __parent__
-    private storage
+    private __parent__;
+    private storage;
     /** 持久化数据 key 集合 */
-    protected PERSISTENCE_KEYS: Array<string>
+    protected PERSISTENCE_KEYS: Array<string>;
     /** 获取数据集 */
-    private getData
-    protected get parent(): Parent
-    protected get state(): Data
+    private getData;
+    protected get parent(): Parent;
+    protected get state(): Data;
     /** 构造方法 */
-    constructor(storage?: Storage)
+    constructor(storage?: Storage);
     /** 设定模块初始化数据 */
-    protected abstract initData(): Data
+    protected abstract initData(): Data;
     /** 提交数据
      * @using this.$commit(key, value)
      *
@@ -29,7 +29,7 @@ export declare abstract class StoreModule<Parent, Data extends IData> {
      * @param {any} value
      * @param {Options} options? 可选, 参考: set-value options属性.
      */
-    protected $commit(key: string | Array<string | number>, value: any, options?: Options): void
+    protected $commit(key: string | Array<string | number>, value: any, options?: Options): void;
     /** 模仿 finia $patch() / 小程序的 setData()
      * @using this.$commit(IData, value)
      *
@@ -41,7 +41,7 @@ export declare abstract class StoreModule<Parent, Data extends IData> {
      * @param {IData} data
      * @param {any} value
      */
-    protected $patch(data: IData, options?: Options): void
+    protected $patch(data: IData, options?: Options): void;
     /** 清除状态数据 */
-    protected $clear(): void
+    protected $clear(): void;
 }

@@ -1,20 +1,71 @@
-# @cp0/store
-
+![npm](https://img.shields.io/npm/dw/@cp0/store.svg)
+[![GitHub stars](https://img.shields.io/github/stars/halo951/store.svg?style=social&label=@cp0/store)](https://github.com/halo951/store)
 [![npm version](https://badge.fury.io/js/@cp0/store.svg)](https://badge.fury.io/js/@cp0/store)
+
+<h1 style="text-align: center;">@cp0/store</h1>
+<hr />
+<p style="color: #ccc; text-align: center;">扁平化设计的 Store 工具. 支持 vue2.x、vue3.x</p>
+<p style="color: #ccc; text-align: center;">Using flat design store to solve the problem of service abstraction. Support vue2.x、vue3.x!</p>
+
+## Notes
+
+**Document: [http://store.cp0.team](http://store.cp0.team)**
+
+`@cp0/store` 是用来解决现有 Store 工具面向类编程使用不便的解决方案.
+
+## Support
+
+-   **adapter**: 适用于 vue2.x, vue3.x, 并提供 `adapter interface` 支持, 可在其他渲染框架内使用(如: react)
+-   **design**: 默认采用扁平化设计, 代码简洁, 易管理.
+-   **study**: 仅包含 `StoreManager`,`StoreModule` 2 个核心模块, 熟悉 ESNext 新特性及 TS class 编程即可上手.
+-   **ide**: Store 整体上就是一个`Class`, 支持一路点点点的代码检索, 没有比这个更丝滑的了!!!
+-   **devtool**: 支持 vue-devtool, 提供 state 快照, 时间旅行功能.
+-   **plugin**: 完全插件化, 支持插件任意拼接.
+-   原则: 让所有操作都有迹可循.
+
+文笔有限, 欢迎补充...
+
+## Adapters
+
+> 通过适配器, 手工指定不同渲染框架的响应式实现方案.
+
+-   [@cp0/store-adapter-vue2](https://www.npmjs.com/package/@cp0/store-adapter-vue2) | vue2.x 支持
+-   [@cp0/store-adapter-vue3](https://www.npmjs.com/package/@cp0/store-adapter-vue3) | vue3.x 支持
+-   `@cp0/store-adapter-react` | 开发中, 目前卡在`subscription`实现上.
+
+## Plugins
+
+-   [@cp0/store-plugin-encrypt](https://www.npmjs.com/package/@cp0/store-plugin-encrypt) | 提供持久化数据加密能力
+-   [@cp0/store-plugin-module-sign](https://www.npmjs.com/package/@cp0/store-plugin-module-sign) | 提供持久化数据命名空间能力, 解决多`Store`情况下, 持久化数据写入冲突问题.
+-   [@cp0/store-plugin-datasource](https://www.npmjs.com/package/@cp0/store-plugin-datasource) | 提供自定义 Store 数据源能力
+-   [@cp0/store-plugin-devtool](https://www.npmjs.com/package/@cp0/store-plugin-devtool) | 提供 vue-devtool 支持
+-   [@cp0/store-plugin-observer](https://www.npmjs.com/package/@cp0/store-plugin-observer) | 观察者模式, 支持`composition api`
+-   [@cp0/store-plugin-vite-hmr](https://www.npmjs.com/package/@cp0/store-plugin-vite-hmr) | 提供 vite hot reload 支持
+
+## Road Map
+
+-   **@cp0/store-adapter-react** react 响应式适配器开发中. 目前卡在`subscription`实现上.
 
 ## What is @cp0/store
 
-> 面向业务抽象的**Vue Store**工具, 一个极简的代码组织工具.
+> 一句话总结: `@cp0/store` 是用来解决 `vuex`, `pina` 使用复杂度以及对 `class api` 范式不友好的解决方案.
+
+-   引用
+
+```
+// vuex
+
+// pinia
+Pinia 是 Vue 的存储库，它允许您跨组件/页面共享状态。
+```
 
 ## About
 
--   core: 面向业务逻辑抽象的状态管理工具
--   support: vue2.x, vue3.x
+-   tags: `扁平化设计`, `逻辑(服务)抽象`, `状态管理/传递工具`
+-   scene: vue2.x, vue3.x, 提供 adapter interface 支持
 -   feature: vuex 状态管理在 **class api** 范式下的替代工具, 优化面向类编程的友好度.
 -   min: 极简, 核心代码仅 2kb.
 -   design: 扁平化设计、插件化、默认集成 Storage 接口.
-
-## Libary [http://www.baidu.com](http://www.baidu.com)
 
 ## Getting Started
 
