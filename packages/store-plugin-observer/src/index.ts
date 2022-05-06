@@ -1,4 +1,4 @@
-import type { IData, IStorePlugin, StoreModule } from '@cp0/store/src/index'
+import type { IData, IStorePlugin, StoreModule } from '@fdsu/store/src/index'
 import {
     EObserverEvent,
     IRegisterActionAfterOptions,

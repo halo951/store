@@ -52,6 +52,7 @@ export abstract class StoreModule<Parent, Data extends IData> {
      */
     protected $commit(key: string | Array<string | number>, value: any, options?: Options): void {
         // intf - 接口, 实现方法由 StoreManager 注入.
+        console.log('$commit', key, value)
     }
 
     /** 模仿 finia $patch() / 小程序的 setData()

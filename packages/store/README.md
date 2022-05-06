@@ -1,8 +1,8 @@
-![npm](https://img.shields.io/npm/dw/@cp0/store.svg)
-[![GitHub stars](https://img.shields.io/github/stars/halo951/store.svg?style=social&label=@cp0/store)](https://github.com/halo951/store)
-[![npm version](https://badge.fury.io/js/@cp0/store.svg)](https://badge.fury.io/js/@cp0/store)
+![npm](https://img.shields.io/npm/dw/@fdsu/store.svg)
+[![GitHub stars](https://img.shields.io/github/stars/halo951/store.svg?style=social&label=@fdsu/store)](https://github.com/halo951/store)
+[![npm version](https://badge.fury.io/js/@fdsu/store.svg)](https://badge.fury.io/js/@fdsu/store)
 
-<h1 style="text-align: center;">@cp0/store</h1>
+<h1 style="text-align: center;">@fdsu/store</h1>
 <hr />
 <p style="color: #ccc; text-align: center;">扁平化设计的 Store 工具. 支持 vue2.x、vue3.x</p>
 <p style="color: #ccc; text-align: center;">Using flat design store to solve the problem of service abstraction. Support vue2.x、vue3.x!</p>
@@ -11,7 +11,7 @@
 
 **Document: [http://store.cp0.team](http://store.cp0.team)**
 
-`@cp0/store` 是用来解决现有 Store 工具面向类编程使用不便的解决方案.
+`@fdsu/store` 是用来解决现有 Store 工具面向类编程使用不便的解决方案.
 
 ## Support
 
@@ -21,6 +21,9 @@
 -   **ide**: Store 整体上就是一个`Class`, 支持一路点点点的代码检索, 没有比这个更丝滑的了!!!
 -   **devtool**: 支持 vue-devtool, 提供 state 快照, 时间旅行功能.
 -   **plugin**: 完全插件化, 支持插件任意拼接.
+-   ***
+-   **可见地**:
+-   **灵活**:
 -   原则: 让所有操作都有迹可循.
 
 文笔有限, 欢迎补充...
@@ -29,26 +32,26 @@
 
 > 通过适配器, 手工指定不同渲染框架的响应式实现方案.
 
--   [@cp0/store-adapter-vue2](https://www.npmjs.com/package/@cp0/store-adapter-vue2) | vue2.x 支持
--   [@cp0/store-adapter-vue3](https://www.npmjs.com/package/@cp0/store-adapter-vue3) | vue3.x 支持
--   `@cp0/store-adapter-react` | 开发中, 目前卡在`subscription`实现上.
+-   [@fdsu/store-adapter-vue2](https://www.npmjs.com/package/@fdsu/store-adapter-vue2) | vue2.x 支持
+-   [@fdsu/store-adapter-vue3](https://www.npmjs.com/package/@fdsu/store-adapter-vue3) | vue3.x 支持
+-   `@fdsu/store-adapter-react` | 开发中, 目前卡在`subscription`实现上.
 
 ## Plugins
 
--   [@cp0/store-plugin-encrypt](https://www.npmjs.com/package/@cp0/store-plugin-encrypt) | 提供持久化数据加密能力
--   [@cp0/store-plugin-module-sign](https://www.npmjs.com/package/@cp0/store-plugin-module-sign) | 提供持久化数据命名空间能力, 解决多`Store`情况下, 持久化数据写入冲突问题.
--   [@cp0/store-plugin-datasource](https://www.npmjs.com/package/@cp0/store-plugin-datasource) | 提供自定义 Store 数据源能力
--   [@cp0/store-plugin-devtool](https://www.npmjs.com/package/@cp0/store-plugin-devtool) | 提供 vue-devtool 支持
--   [@cp0/store-plugin-observer](https://www.npmjs.com/package/@cp0/store-plugin-observer) | 观察者模式, 支持`composition api`
--   [@cp0/store-plugin-vite-hmr](https://www.npmjs.com/package/@cp0/store-plugin-vite-hmr) | 提供 vite hot reload 支持
+-   [@fdsu/store-plugin-encrypt](https://www.npmjs.com/package/@fdsu/store-plugin-encrypt) | 提供持久化数据加密能力
+-   [@fdsu/store-plugin-module-sign](https://www.npmjs.com/package/@fdsu/store-plugin-module-sign) | 提供持久化数据命名空间能力, 解决多`Store`情况下, 持久化数据写入冲突问题.
+-   [@fdsu/store-plugin-datasource](https://www.npmjs.com/package/@fdsu/store-plugin-datasource) | 提供自定义 Store 数据源能力
+-   [@fdsu/store-plugin-devtool](https://www.npmjs.com/package/@fdsu/store-plugin-devtool) | 提供 vue-devtool 支持
+-   [@fdsu/store-plugin-observer](https://www.npmjs.com/package/@fdsu/store-plugin-observer) | 观察者模式, 支持`composition api`
+-   [@fdsu/store-plugin-vite-hmr](https://www.npmjs.com/package/@fdsu/store-plugin-vite-hmr) | 提供 vite hot reload 支持
 
 ## Road Map
 
--   **@cp0/store-adapter-react** react 响应式适配器开发中. 目前卡在`subscription`实现上.
+-   **@fdsu/store-adapter-react** react 响应式适配器开发中. 目前卡在`subscription`实现上.
 
-## What is @cp0/store
+## What is @fdsu/store
 
-> 一句话总结: `@cp0/store` 是用来解决 `vuex`, `pina` 使用复杂度以及对 `class api` 范式不友好的解决方案.
+> 一句话总结: `@fdsu/store` 是用来解决 `vuex`, `pina` 使用复杂度以及对 `class api` 范式不友好的解决方案.
 
 -   引用
 
@@ -72,7 +75,7 @@ Pinia 是 Vue 的存储库，它允许您跨组件/页面共享状态。
 ### 定义
 
 ```typescript
-import { StoreManager, StoreModule } from '@cp0/store'
+import { StoreManager, StoreModule } from '@fdsu/store'
 
 // 定义 Model
 export interface ITestModel {

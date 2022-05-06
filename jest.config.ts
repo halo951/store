@@ -20,7 +20,7 @@ const config: Config.InitialOptions = {
         '<rootDir>/packages/store-adapter-*/__tests__/*.test.ts'
     ],
     moduleNameMapper: {
-        '^@cp0/(.*?)$': '<rootDir>/packages/$1/src'
+        '^@fdsu/(.*?)$': '<rootDir>/packages/$1/src'
     },
     rootDir: __dirname
 }

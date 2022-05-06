@@ -1,10 +1,10 @@
-import type { IStorePlugin, IData } from '@cp0/store/src/index';
+import type { IStorePlugin, IData } from '@fdsu/store/src/index';
 /** plugin options */
 export interface IStoreEncryptOptions {
     /** AES 对称加密 key 参数 */
     key: string;
 }
-/** @cp0/store 持久化数据加密插件
+/** @fdsu/store 持久化数据加密插件
  *
  * @description 基于 CryptoJs.AES 进行对称加密
  */

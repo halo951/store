@@ -1,9 +1,9 @@
 {
-    "name": "@cp0/store-plugin-observer",
+    "name": "@fdsu/store-plugin-observer",
     "version": "0.3.1",
     "description": "面向 Class API 的 Vue Store",
     "keywords": [
-        "@cp0/store",
+        "@fdsu/store",
         "StoreObserverPlugin"
     ],
     "main": "dist/cjs/index.js",
@@ -32,11 +32,7 @@
         "@vue/devtools-api": "^6.0.8",
         "klona": "^2.0.5",
         "set-value": "^4.1.0",
-        "vue-demi": "^0.12.5",
-        "@cp0/store-plugin-devtool": "^0.3.1",
-        "@cp0/store-plugin-encrypt": "^0.3.1",
-        "@cp0/store-plugin-module-hash": "^0.3.1",
-        "@cp0/store-plugin-vite-hmr": "^0.3.1"
+        "vue-demi": "^0.12.5"
     },
     "peerDependencies": {
         "@vue/composition-api": "^1.0.0-rc.1",

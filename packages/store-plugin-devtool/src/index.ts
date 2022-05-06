@@ -1,5 +1,5 @@
 import type { Vue2, App as VueApp } from 'vue-demi'
-import type { IData, IStorePlugin, IStoreCache, StoreManager, StoreModule } from '@cp0/store/src/index'
+import type { IData, IStorePlugin, IStoreCache, StoreManager, StoreModule } from '@fdsu/store/src/index'
 
 import {
     CustomInspectorNode,
@@ -41,7 +41,7 @@ const LOCK_PROPERTIES: Array<string> = [
     '__parent__'
 ]
 
-/** @cp0/store vue-devtool 支持
+/** @fdsu/store vue-devtool 支持
  *
  * @description 基于 vuejs/devtool 6.x 版本实现
  * @support

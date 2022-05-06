@@ -1,4 +1,4 @@
-/** @cp0/store-plugin-observer
+/** @fdsu/store-plugin-observer
  *
  * @author halo951
  * @license MIT

@@ -1,4 +1,4 @@
-import { StoreModule, Options, IData } from '@cp0/store'
+import { StoreModule, Options, IData } from '@fdsu/store'
 import { Store } from '..'
 
 interface ITestModel {

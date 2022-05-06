@@ -1,9 +1,9 @@
 {
-    "name": "@cp0/store-plugin-devtool",
+    "name": "@fdsu/store-plugin-devtool",
     "version": "0.3.1",
     "description": "Store Plugin: 提供 Vue DevTool 支持.",
     "keywords": [
-        "@cp0/store",
+        "@fdsu/store",
         "StoreDevtoolPlugin"
     ],
     "main": "dist/cjs/index.js",
@@ -35,7 +35,7 @@
     "peerDependencies": {
         "@vue/composition-api": "^1.0.0-rc.1",
         "vue": "^2.0.0 || >=3.0.0",
-        "@cp0/store": "*"
+        "@fdsu/store": "*"
     },
     "peerDependenciesMeta": {
         "@vue/composition-api": {

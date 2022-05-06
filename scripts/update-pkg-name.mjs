@@ -11,7 +11,7 @@ class Main {
         for (let cwd of projects) {
             p = path.join(cwd, 'package.json')
             const pkg = JSON.parse(readFileSync(p, { encoding: 'utf-8' }))
-            pkg.name = `@cp0/${path.basename(cwd)}`
+            pkg.name = `@fdsu/${path.basename(cwd)}`
             fi = format(JSON.stringify(pkg), { parser: 'json-stringify' })
             writeFileSync(p, fi, { encoding: 'utf-8' })
         }

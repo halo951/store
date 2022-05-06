@@ -1,9 +1,9 @@
 {
-    "name": "@cp0/store-plugin-module-hash",
+    "name": "@fdsu/store-plugin-module-hash",
     "version": "0.3.1",
     "description": "Store Plugin: 提供 Vue DevTool 支持.",
     "keywords": [
-        "@cp0/store",
+        "@fdsu/store",
         "StoreModuleHashPlugin"
     ],
     "main": "dist/cjs/index.js",
@@ -32,7 +32,7 @@
         "crypto-js": "^4.1.1"
     },
     "peerDependencies": {
-        "@cp0/store": "*"
+        "@fdsu/store": "*"
     },
     "devDependencies": {
         "@types/crypto-js": "^4.1.1"

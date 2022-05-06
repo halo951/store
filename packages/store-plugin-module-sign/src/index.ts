@@ -1,4 +1,4 @@
-import type { IStorePlugin } from '@cp0/store/src/index'
+import type { IStorePlugin } from '@fdsu/store/src/index'
 
 import { MD5 } from 'crypto-js'
 

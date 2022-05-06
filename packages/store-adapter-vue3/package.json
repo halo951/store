@@ -1,9 +1,9 @@
 {
-    "name": "@cp0/store-adapter-vue3",
+    "name": "@fdsu/store-adapter-vue3",
     "version": "0.3.1",
     "description": "Store Adapter: 提供 vue3 响应式支持",
     "keywords": [
-        "@cp0/store",
+        "@fdsu/store",
         "StoreVue3Adapter"
     ],
     "main": "dist/cjs/index.js",
@@ -30,7 +30,7 @@
     },
     "dependencies": {},
     "peerDependencies": {
-        "@cp0/store": "*",
+        "@fdsu/store": "*",
         "vue": ">=3.0.0"
     },
     "devDependencies": {

@@ -4,6 +4,8 @@
 
 -   introduction - 介绍
     -   What is? - 简介
+        -   
+        -   特性
     -   install - 安装
     -   Getting Started - 简单使用
     -   Diff - 对比 (工具对比, API 范式对比)
@@ -36,7 +38,7 @@
     -   inject - StoreModule 能力注入
     -   size - 包体积
 -   contribute - 贡献
-    -   impl - 了解 @cp0/store 实现原理.
+    -   impl - 了解 @fdsu/store 实现原理.
     -   adapter - 扩展适配器
     -   plugin - 扩展插件
     -   proposal - 改进&建议

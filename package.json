@@ -1,5 +1,5 @@
 {
-    "name": "@cp0/workspace",
+    "name": "@fdsu/workspace",
     "version": "0.0.2",
     "private": true,
     "workspaces": [

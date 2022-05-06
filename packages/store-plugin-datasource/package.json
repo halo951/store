@@ -1,9 +1,9 @@
 {
-    "name": "@cp0/store-plugin-datasource",
+    "name": "@fdsu/store-plugin-datasource",
     "version": "0.3.1",
-    "description": "@cp0/store 自定义数据源插件",
+    "description": "@fdsu/store 自定义数据源插件",
     "keywords": [
-        "@cp0/store",
+        "@fdsu/store",
         "StoreDatasourcePlugin"
     ],
     "main": "dist/cjs/index.js",

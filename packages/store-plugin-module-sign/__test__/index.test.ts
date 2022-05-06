@@ -1,5 +1,5 @@
-import { StoreManager, StoreModule } from '@cp0/store/src/index'
-import { StoreModuleHashPlugin } from '@cp0/store-plugin-module-hash'
+import { StoreManager, StoreModule } from '@fdsu/store/src/index'
+import { StoreModuleHashPlugin } from '@fdsu/store-plugin-module-hash'
 import { MD5 } from 'crypto-js'
 
 /** 内存模拟缓存功能 */

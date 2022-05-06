@@ -1,6 +1,6 @@
-# @cp0/store-plugin-datasource
+# @fdsu/store-plugin-datasource
 
-[![npm version](https://badge.fury.io/js/@cp0/store.svg)](https://badge.fury.io/js/@cp0/store)
+[![npm version](https://badge.fury.io/js/@fdsu/store.svg)](https://badge.fury.io/js/@fdsu/store)
 
 ## About
 

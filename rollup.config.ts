@@ -1,6 +1,5 @@
 import typescript from 'rollup-plugin-typescript2'
 import { terser } from 'rollup-plugin-terser'
-import resolve from '@rollup/plugin-node-resolve'
 import { babel } from '@rollup/plugin-babel'
 import { ModuleFormat, RollupOptions } from 'rollup'
 import path from 'path'
@@ -26,7 +25,6 @@ export default async (): Promise<RollupOptions | Array<RollupOptions>> => {
             plugins: [
                 typescript({ clean: true, useTsconfigDeclarationDir: true, abortOnError: true }),
                 babel({ babelHelpers: 'bundled', presets: ['@babel/preset-env'] }),
-                resolve({}),
                 terser()
             ],
             external: Object.keys(pkg.dependencies),

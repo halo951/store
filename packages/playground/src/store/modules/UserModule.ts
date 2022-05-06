@@ -1,4 +1,4 @@
-import { StoreModule } from '@cp0/store'
+import { StoreModule } from '@fdsu/store'
 import Store from '..'
 
 export interface IUserModel {
@@ -6,23 +6,32 @@ export interface IUserModel {
 }
 
 export class UserModule extends StoreModule<Store, IUserModel> {
+    static $id: string = 'haha'
     /** 持久化选项, 指定那些字段需要持久化 */
     PERSISTENCE_KEYS: Array<string> = ['ton']
-
+    constructor() {
+        super()
+        console.log('new 1User')
+    }
     initData(): IUserModel {
         return {
-            token: '12312211'
+            token: '1211123112'
         }
     }
+
     get token() {
-        return this.state.token
+        return 'token1233322112 | ' + this.state.token
     }
 
     login() {
-        this.$commit('token', 'xxxx')
+        this.abc()
     }
 
     logout() {
         this.$clear()
+    }
+
+    abc() {
+        console.log('abc')
     }
 }

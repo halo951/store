@@ -1,4 +1,4 @@
-import type { StoreManager, IStorePlugin, IData } from '@cp0/store/src/index'
+import type { StoreManager, IStorePlugin, IData } from '@fdsu/store/src/index'
 
 export interface IStoreCacheDataProxy {
     [moduleName: string]: IData

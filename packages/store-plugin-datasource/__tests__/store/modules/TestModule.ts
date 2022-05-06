@@ -1,4 +1,4 @@
-import { StoreModule } from '@cp0/store/src/index'
+import { StoreModule } from '@fdsu/store/src/index'
 import { Store } from '..'
 
 export interface ITestModel {

@@ -1,4 +1,4 @@
-import { StoreModule } from '@cp0/store'
+import { StoreModule } from '@fdsu/store'
 import Store from '..'
 
 export interface IPatchModel {
