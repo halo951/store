@@ -44,7 +44,7 @@ export default defineUserConfig({
         '/zh/': {
             lang: 'zh-cn',
             title: 'Flat Design Store Util',
-            description: '通过扁平化的Store设计, 解决项目中的服务抽象问题. 支持 Vue2.x, Vue3.x'
+            description: '上手难度低、方便使用、容易维护的 Store 工具. '
         }
     },
     // theme and plugins

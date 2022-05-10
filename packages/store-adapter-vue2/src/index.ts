@@ -6,7 +6,7 @@ export interface IStoreAdapterOptions {
 }
 
 /** vue2 inject adapter */
-export default class Vue2Adapter implements IStoreAdapter {
+export class Vue2Adapter implements IStoreAdapter {
     globalPropertyKey: string = '$store'
     constructor(options?: IStoreAdapterOptions) {
         if (options?.globalPropertyKey) this.globalPropertyKey = options.globalPropertyKey

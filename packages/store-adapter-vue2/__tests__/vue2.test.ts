@@ -1,4 +1,4 @@
-import Vue2Adapter from '../src'
+import { Vue2Adapter } from '../src'
 import { Store } from './store'
 describe('test.vue (satisfied coverage)', () => {
     test('install | Vue2 > Vue.use', async () => {

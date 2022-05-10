@@ -8,19 +8,12 @@
     </div>
 </template>
 
-<script setup lang="ts">
-import Catalog from './components/catalog.vue'
-import Layout from './components/layout.vue'
-</script>
-
 <style lang="less">
 html,
 body {
     margin: 0;
     padding: 0;
     box-sizing: content-box;
-
-    
 }
 
 .app {

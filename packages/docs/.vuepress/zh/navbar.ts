@@ -3,13 +3,12 @@ import pkg from '../../../store/package.json'
 import glob from 'glob'
 
 export const navbar: NavbarConfig = [
-    { text: '指南', link: '/zh/guide' },
+    { text: '指南', link: '/zh/guide/what' },
     { text: '示例', link: '/zh/example' },
-    { text: '插件', link: '/zh/plugins' },
     {
         text: '笔记',
         children: [
-            { text: '开发笔记', link: '/zh/notes' },
+            { text: '最佳实践', link: '/zh/notes' },
             { text: 'RoadMap', link: '/zh/roadmap' }
         ]
     },

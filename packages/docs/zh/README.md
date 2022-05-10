@@ -6,10 +6,10 @@ heroImage: /logo.png
 heroImageDark: /logo-dark.png
 pageClass: welcome
 actions:
-    - text: 项目简介
+    - text: 简介
       link: /zh/guide
       type: secondary
-    - text: 新手上路 →
+    - text: 快速上手 →
       link: /zh/guide/getting-started.md
       type: primary
 features:

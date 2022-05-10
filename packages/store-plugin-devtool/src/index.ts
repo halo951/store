@@ -41,24 +41,38 @@ const LOCK_PROPERTIES: Array<string> = [
     '__parent__'
 ]
 
+interface IActionLog {
+    moduleName: string
+    action: string
+    sync: boolean
+    beforeSnapshot: any
+    afterSnapshot: any
+    error?: Error | null | undefined
+    res?: any
+}
+
 /** @fdsu/store vue-devtool 支持
  *
  * @description 基于 vuejs/devtool 6.x 版本实现
  * @support
- *  1. store tree node
+ *  1. 状态快照
  *  2. 时间旅行
  *
  */
 export class StoreDevtoolPlugin implements IStorePlugin {
-    /** dev tool api 实例 */
-    // private api!: TDevToolApi
+    disabled!: boolean
+
+    constructor(disabled?: boolean) {
+        this.disabled = !!disabled
+    }
 
     /** 在挂载到vue节点时, 注册 vue devTool 逻辑
      *
      * @support 支持多 vue 实例集成
      * @description 通过 DevTool 提供的 timeline, custom inspector 能力实现
      */
-    onBindedToVue(store: StoreManager, app: typeof Vue2 | VueApp): void {
+    onBinded(store: StoreManager, app: typeof Vue2 | VueApp): void {
+        if (this.disabled) return
         setupDevtoolsPlugin(
             {
                 id: 'org.d1t.store',
@@ -173,7 +187,7 @@ export class StoreDevtoolPlugin implements IStorePlugin {
 
     /** 生成 StoreManager preview 属性 */
     private generateManagerState(store: StoreManager): CustomInspectorState {
-        const plugins: Array<IStorePlugin> = store['plugins']
+        const plugins: Array<IStorePlugin> = store['options'].plugins ?? []
         return {
             manager: [
                 { key: 'version', value: store['options'].version },
@@ -310,14 +324,4 @@ export class StoreDevtoolPlugin implements IStorePlugin {
             })
         }
     }
-}
-
-interface IActionLog {
-    moduleName: string
-    action: string
-    sync: boolean
-    beforeSnapshot: any
-    afterSnapshot: any
-    error?: Error | null | undefined
-    res?: any
 }

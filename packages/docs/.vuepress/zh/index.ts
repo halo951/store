@@ -1,2 +1,2 @@
 export { navbar } from './navbar'
-// export { sidebar } from './sidebar'
+export { sidebar } from './sidebar'

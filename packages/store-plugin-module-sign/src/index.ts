@@ -25,7 +25,7 @@ export class StoreModuleHashPlugin implements IStorePlugin {
      * @description 用于自定义持久化模块签名
      * @returns {string} 转换过的签名
      */
-    transformModuleHash(moduleName: string, originName?: string): string {
+    transformSign(moduleName: string, originName?: string): string {
         if (!this.options) throw new Error(`use ModuleHashPlugin should write constructor options.`)
         let out: string = moduleName
         const { prefix, suffix, hash } = this.options

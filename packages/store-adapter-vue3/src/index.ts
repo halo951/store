@@ -8,7 +8,7 @@ export interface IStoreAdapterOptions {
 }
 
 /** vue3 inject adapter */
-export default class Vue3Adapter implements IStoreAdapter {
+export class Vue3Adapter implements IStoreAdapter {
     globalPropertyKey: string = '$store'
     constructor(options?: IStoreAdapterOptions) {
         if (options?.globalPropertyKey) this.globalPropertyKey = options.globalPropertyKey

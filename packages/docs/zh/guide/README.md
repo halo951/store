@@ -1,9 +1,13 @@
 ---
 title: 指南
-permalink: /zh/guide
+editLink: false
+contributors: false
 ---
 
--   [What is @fdsu/store?](intro/what.md)
--   [Install](intro/install.md)
--   [Getting Started](intro/getting-started.md)
--   [framework](intro/framework.md)
+## 目录
+
+-   [@fdsu/store 简介](what.md)
+-   [安装](install.md)
+-   [快速上手](getting-started.md)
+-   [架构设计](framework.md)
+-   [对比](diff.md)

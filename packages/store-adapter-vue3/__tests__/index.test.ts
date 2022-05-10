@@ -1,4 +1,4 @@
-import Vue3Adapter from '../src'
+import { Vue3Adapter } from '../src'
 import { Store } from './store'
 import { mount } from '@vue/test-utils'
 
