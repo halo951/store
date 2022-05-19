@@ -1,5 +1,5 @@
+import { StoreManager, StoreModule } from '@fdsu/store'
 import { StoreEncryptPlugin } from '@fdsu/store-plugin-encrypt'
-import { StoreManager, StoreModule } from '@fdsu/store/src/index'
 import { StoreModuleHashPlugin } from '@fdsu/store-plugin-module-hash'
 
 /** 内存模拟缓存功能 */

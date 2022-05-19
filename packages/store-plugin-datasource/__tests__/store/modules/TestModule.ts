@@ -1,5 +1,4 @@
-import { StoreModule } from '@fdsu/store/src/index'
-import { Store } from '..'
+import { StoreModule } from '@fdsu/store'
 
 export interface ITestModel {
     a: string | null

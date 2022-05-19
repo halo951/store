@@ -1,4 +1,4 @@
-import { StoreManager, StoreModule } from '@fdsu/store/src/index'
+import { StoreManager, StoreModule } from '@fdsu/store'
 import { StoreModuleHashPlugin } from '@fdsu/store-plugin-module-hash'
 import { MD5 } from 'crypto-js'
 
@@ -133,7 +133,7 @@ describe('plugin.test', () => {
         const moduleHashPlugin = new StoreModuleHashPlugin({})
         try {
             delete moduleHashPlugin.options
-            moduleHashPlugin.transformModuleHash('module')
+            moduleHashPlugin.transformSign('module')
             throw new Error('缺少 options 时, 应该抛出异常')
         } catch (error) {
             expect(error.message).toBe(`use ModuleHashPlugin should write constructor options.`)
@@ -144,8 +144,8 @@ describe('plugin.test', () => {
         const pluginForLang = new StoreModuleHashPlugin({ hash: 'lang' })
         const pluginForSimple = new StoreModuleHashPlugin({ hash: 'simple' })
         // check
-        expect(pluginForSimple.transformModuleHash('test').length).toBe(6)
-        expect(pluginForSimple.transformModuleHash('test')).toBe(MD5('test').toString().slice(0, 6))
-        expect(pluginForLang.transformModuleHash('test')).toBe(MD5('test').toString())
+        expect(pluginForSimple.transformSign('test').length).toBe(6)
+        expect(pluginForSimple.transformSign('test')).toBe(MD5('test').toString().slice(0, 6))
+        expect(pluginForLang.transformSign('test')).toBe(MD5('test').toString())
     })
 })

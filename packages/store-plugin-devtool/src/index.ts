@@ -200,7 +200,7 @@ export class StoreDevtoolPlugin implements IStorePlugin {
     /** 生成 module state */
     private generateModuleState(store: StoreManager, moduleName: string): CustomInspectorState {
         const module: StoreModule<StoreManager, IData> = (store as any)[moduleName]
-        const state = module['state']
+        const state: any = module['state']
         const props = Object.getOwnPropertyNames((module as any).__proto__).map((key) => {
             return { key, value: null }
         })
@@ -218,12 +218,7 @@ export class StoreDevtoolPlugin implements IStorePlugin {
             state: Object.keys(state).map((key: string) => {
                 return { key, value: state[key], editable: true }
             }),
-            options: [
-                {
-                    key: 'PERSISTENCE_KEYS',
-                    value: module['PERSISTENCE_KEYS']
-                }
-            ]
+            options: [{ key: 'PERSISTENCE_KEYS', value: module['PERSISTENCE_KEYS'] }]
         }
     }
     /** 安装 时间旅行 功能 */

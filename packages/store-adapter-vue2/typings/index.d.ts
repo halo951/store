@@ -1,6 +1,11 @@
-import Vue2 from 'vue';
+import type Vue2 from 'vue';
 import type { StoreManager, IStoreAdapter } from '@fdsu/store';
+export interface IStoreAdapterOptions {
+    globalPropertyKey: '$store' | string;
+}
 /** vue2 inject adapter */
-export default class Vue2Adapter implements IStoreAdapter {
-    factory($store: StoreManager, app: typeof Vue2): void;
+export declare class Vue2Adapter implements IStoreAdapter {
+    globalPropertyKey: string;
+    constructor(options?: IStoreAdapterOptions);
+    factory(store: StoreManager, app: typeof Vue2): void;
 }

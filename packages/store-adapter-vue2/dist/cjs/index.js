@@ -3,4 +3,4 @@
  * @author halo951
  * @license MIT
  */
-"use strict";module.exports=class{factory(e,t){t.mixin({data:()=>({$store:e}),beforeCreate(){this.$store=e}})}};
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});exports.Vue2Adapter=class{globalPropertyKey="$store";constructor(e){e?.globalPropertyKey&&(this.globalPropertyKey=e.globalPropertyKey)}factory(e,r){r.observable(e.cache.data),r.prototype[this.globalPropertyKey]=e}};
