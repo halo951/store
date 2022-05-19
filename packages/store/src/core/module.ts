@@ -2,7 +2,7 @@ import type { IData } from '../intf/data.intf'
 import type { Options } from 'set-value'
 
 /** StoreModule */
-export abstract class StoreModule<Parent, Data extends IData> {
+export abstract class StoreModule<Data extends IData = IData, Parent = unknown> {
     /* options */
     private __parent__!: Parent
 

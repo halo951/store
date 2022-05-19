@@ -41,7 +41,7 @@ describe('plugin.test', () => {
         val: string | null
     }
 
-    class TestModule extends StoreModule<Store, ITestModel> {
+    class TestModule extends StoreModule<ITestModel, Store> {
         /** 通过 PERSISTENCE_KEYS 数组, 定义需要持久刷的属性 */
         protected PERSISTENCE_KEYS: Array<string> = ['val']
 

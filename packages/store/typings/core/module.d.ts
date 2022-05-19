@@ -1,7 +1,7 @@
 import type { IData } from '../intf/data.intf';
 import type { Options } from 'set-value';
 /** StoreModule */
-export declare abstract class StoreModule<Parent, Data extends IData> {
+export declare abstract class StoreModule<Data extends IData = IData, Parent = unknown> {
     private __parent__;
     private storage;
     /** 持久化数据 key 集合 */

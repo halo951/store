@@ -57,7 +57,7 @@ export abstract class StoreManager {
 
         if (!(specifyModules instanceof Array)) throw new Error('$store.clear() should be passed into Array.')
 
-        let model: StoreModule<this, IData>
+        let model: StoreModule<IData, this>
         // # 逐个清理, 还原数据
         for (const moduleName of specifyModules) {
             model = (this as any)[moduleName]
@@ -73,7 +73,7 @@ export abstract class StoreManager {
         if (this.ready) return
         // > emit plugin binded to vue event
         this.emit((plugin: IStorePlugin) => plugin.onBefore?.(this))
-        let model: StoreModule<this, IData>
+        let model: StoreModule<IData, this>
         // # module init
         for (const moduleName of this.modules) {
             model = (this as any)[moduleName]
@@ -109,7 +109,7 @@ export abstract class StoreManager {
      *
      * @description use function mapping realization StoreModule abstract function.
      */
-    private injectFactory(moduleName: string, model: StoreModule<this, any>) {
+    private injectFactory(moduleName: string, model: StoreModule<IData, this>) {
         const ERROR_PREFIX: string = `$store.${moduleName} `
         model['__parent__'] = this
 
@@ -119,7 +119,7 @@ export abstract class StoreManager {
         }
 
         // # inject Function 'commit'
-        model['$commit'] = (key: Array<string | number> | string, value: any, options?: Options) => {
+        model['$commit'] = (key: Array<string | number> | string, value: unknown, options?: Options) => {
             const firstObjectPath: string = getFirstPropKey(key)
 
             // ? 校验commit key第一位是否是预定义字段
@@ -168,12 +168,12 @@ export abstract class StoreManager {
     }
 
     /** data prepare */
-    private prepare(moduleName: string, model: StoreModule<this, any>): void {
+    private prepare(moduleName: string, model: StoreModule<IData, this>): void {
         const NAME_HASH: string = this.generateModuleSign(moduleName)
         // hacker: use ['key'] skip ts check.
         const dataStr: string | null = model['storage']?.getItem(NAME_HASH) ?? null
         const origin: IData = model['initData']()
-        let persistenceData: any = {}
+        let persistenceData: IData = {}
 
         if (dataStr) {
             const body: IData = JSON.parse(dataStr)
@@ -196,7 +196,7 @@ export abstract class StoreManager {
     }
 
     /** data persistence */
-    private persistence(moduleName: string, model: StoreModule<this, IData>): void {
+    private persistence(moduleName: string, model: StoreModule<IData, this>): void {
         const NAME_HASH = this.generateModuleSign(moduleName)
         const origin = this.cache.data[moduleName]
         const storage: Storage = model['storage']

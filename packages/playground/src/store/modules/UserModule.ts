@@ -5,7 +5,7 @@ export interface IUserModel {
     token: string | null
 }
 
-export class UserModule extends StoreModule<Store, IUserModel> {
+export class UserModule extends StoreModule<IUserModel> {
     static $id: string = 'haha'
     /** 持久化选项, 指定那些字段需要持久化 */
     PERSISTENCE_KEYS: Array<string> = ['ton']

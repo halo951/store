@@ -14,7 +14,7 @@ export interface IAppModel {
 export interface IUserModel {
     token: string
 }
-export class AppModule extends StoreModule<Store, IAppModel> {
+export class AppModule extends StoreModule<IAppModel> {
     initData() {
         return { version: '1.0.0' }
     }
@@ -26,7 +26,7 @@ export class AppModule extends StoreModule<Store, IAppModel> {
         this.$commit('version', val)
     }
 }
-export class UserModule extends StoreModule<Store, IUserModel> {
+export class UserModule extends StoreModule<IUserModel> {
     initData() {
         return { token: null }
     }

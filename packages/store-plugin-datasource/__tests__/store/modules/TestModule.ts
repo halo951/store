@@ -7,7 +7,7 @@ export interface ITestModel {
     c: { [key: string]: any } | null
 }
 
-export class TestModule extends StoreModule<Store, ITestModel> {
+export class TestModule extends StoreModule<ITestModel> {
     protected initData(): ITestModel {
         return {
             a: null,

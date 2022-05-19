@@ -1,5 +1,4 @@
 import { StoreModule, Options, IData } from '@fdsu/store'
-import { Store } from '..'
 
 interface ITestModel {
     a: string | null
@@ -12,7 +11,7 @@ interface ITestModel {
     'a.b': string | null
 }
 
-export class TestModule extends StoreModule<Store, ITestModel> {
+export class TestModule extends StoreModule<ITestModel> {
     /** 定义数据模型 */
     initData(): ITestModel {
         return {

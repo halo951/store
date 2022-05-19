@@ -32,7 +32,7 @@ export interface IUserModel {
     user: any
 }
 /** 定义User信息相关的 module */
-export class UserModule extends StoreModule<Store, IUserModel> {
+export class UserModule extends StoreModule<IUserModel> {
     // 将 token 持久化, 下次免登录
     PERSISTENCE_KEYS: Array<string> = ['token']
 

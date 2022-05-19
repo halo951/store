@@ -8,7 +8,7 @@ export interface IPatchModel {
     d: any
 }
 
-export class PatchModule extends StoreModule<Store, IPatchModel> {
+export class PatchModule extends StoreModule<IPatchModel, Store> {
     initData(): IPatchModel {
         return {
             a: 'a',

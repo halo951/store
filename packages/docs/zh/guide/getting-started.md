@@ -91,7 +91,7 @@ export interface IUserModel {
 }
 
 /** 定义 module */
-export class UserModule extends StoreModule<Store, IUserModel> {
+export class UserModule extends StoreModule<IUserModel, Store> {
     /** 初始化 state 数据 */
     initData(): IUserModel {
         return {

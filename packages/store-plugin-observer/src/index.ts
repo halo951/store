@@ -114,4 +114,4 @@ export const registerPatchFilter = (options: IRegisterPatchFilterOptions): void 
     register(EObserverEvent.ON_PATCH_FILTER, options)
 }
 
-export const watchStateChange = <T extends StoreModule<any, IData>>(module: T, path: string) => {}
+export const watchStateChange = <T extends StoreModule<IData>>(module: T, path: string) => {}

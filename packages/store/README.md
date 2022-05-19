@@ -83,7 +83,7 @@ export interface ITestModel {
 }
 
 // 定义 store module
-export class TestModule extends StoreModule<Store, ITestModel> {
+export class TestModule extends StoreModule<ITestModel> {
     initData(): ITestModel {
         return {
             n: null

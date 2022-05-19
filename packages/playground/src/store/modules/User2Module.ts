@@ -1,11 +1,9 @@
 import { StoreModule } from '@fdsu/store'
-import Store from '..'
-
 export interface IUserModel {
     token: string | null
 }
 
-export class User2Module extends StoreModule<Store, IUserModel> {
+export class User2Module extends StoreModule<IUserModel> {
     static $id: string = 'User2'
 
     /** 持久化选项, 指定那些字段需要持久化 */
