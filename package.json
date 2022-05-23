@@ -7,10 +7,12 @@
     ],
     "release": [
         "packages/store",
+        "packages/store-adapter-vue2",
+        "packages/store-adapter-vue3",
         "packages/store-plugin-datasource",
         "packages/store-plugin-devtool",
-        "packages/store-encrypt",
-        "packages/store-module-hash"
+        "packages/store-plugin-module-sign",
+        "packages/store-plugin-observer"
     ],
     "scripts": {
         "clean": "rimraf packages/*/dist && rimraf packages/*/typings",
