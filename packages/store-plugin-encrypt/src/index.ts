@@ -1,4 +1,4 @@
-import type { IStorePlugin, IData } from '@fdsu/store/src/index'
+import type { IStorePlugin, IData } from '@fdu/store'
 
 import { AES, enc } from 'crypto-js'
 
@@ -8,7 +8,7 @@ export interface IStoreEncryptOptions {
     key: string
 }
 
-/** @fdsu/store 持久化数据加密插件
+/** @fdu/store 持久化数据加密插件
  *
  * @description 基于 CryptoJs.AES 进行对称加密
  */

@@ -18,7 +18,7 @@
 
 ```bash
 
-yarn add @fdsu/store @fdsu/store-adapter-vue3
+yarn add @fdu/store @fdu/store-adapter-vue3
 
 ```
 
@@ -27,7 +27,7 @@ yarn add @fdsu/store @fdsu/store-adapter-vue3
 
 ```bash
 
-yarn add @fdsu/store @fdsu/store-adapter-vue2
+yarn add @fdu/store @fdu/store-adapter-vue2
 
 ```
 
@@ -57,7 +57,7 @@ yarn add @fdsu/store @fdsu/store-adapter-vue2
 首先, 创建一个 Store 类, 需要继承 `StoreManager`
 
 ```typescript
-import { StoreManager } from '@fdsu/store'
+import { StoreManager } from '@fdu/store'
 /** 定义 store */
 export default class Store extends StoreManager {}
 ```
@@ -80,7 +80,7 @@ export default class Store extends StoreManager {}
 :::
 
 ```typescript
-import { StoreModule } from '@fdsu/store'
+import { StoreModule } from '@fdu/store'
 import type Store from '..' // 注意, 为了使用 .parent 变量, 我们需要借助泛型方式, 导入Store的类型定义.
 
 /** 定义 module 的数据模型
@@ -129,11 +129,11 @@ export class UserModule extends StoreModule<IUserModel, Store> {
 
 > 1.  引用 UserModule
 > 2.  实例化 Store
-> 3.  配置 adapter (注: vue2.x 请使用 [@fdsu/store-adapter-vue2](#安装))
+> 3.  配置 adapter (注: vue2.x 请使用 [@fdu/store-adapter-vue2](#安装))
 
 ```typescript
-import { StoreManager } from '@fdsu/store'
-import { Vue3Adapter } from '@fdsu/store-adapter-vue3'
+import { StoreManager } from '@fdu/store'
+import { Vue3Adapter } from '@fdu/store-adapter-vue3'
 import { UserModule } from './modules/UserModule'
 /** 定义 store */
 export default class Store extends StoreManager {

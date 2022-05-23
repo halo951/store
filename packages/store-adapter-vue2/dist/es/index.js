@@ -1,4 +1,4 @@
-/** @fdsu/store-adapter-vue2
+/** @fdu/store-adapter-vue2
  *
  * @author halo951
  * @license MIT

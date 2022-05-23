@@ -17,7 +17,7 @@
 当处于上述场景下, 需要注意如下问题:
 
 -   `Store` 持久化的 Module 会产生命名冲突, 进而产生数据污染问题 (注:1)
--   `@fdsu/store-plugin-observer` 观察者插件, 通过 composition api 注册事件时, 会拦截到同一服务下所有`Store`产生的事件, 请注意!
+-   `@fdu/store-plugin-observer` 观察者插件, 通过 composition api 注册事件时, 会拦截到同一服务下所有`Store`产生的事件, 请注意!
 
     注:
 
@@ -31,19 +31,19 @@
 
 ### 通过插件解决
 
-通过 `@fdsu/store-plugin-module-sign` 插件, 使`Store`的持久化数据具备不同的签名(key)
+通过 `@fdu/store-plugin-module-sign` 插件, 使`Store`的持久化数据具备不同的签名(key)
 
 #### 安装
 
 ```bash:no-line-numbers
-yarn add @fdsu/store-plugin-module-sign
+yarn add @fdu/store-plugin-module-sign
 ```
 
 #### 使用
 
 ```typescript
-import { StoreManager } from '@fdsu/store'
-import { StoreModuleSignPlugin } from '@fdsu/store-plugin-module-sign'
+import { StoreManager } from '@fdu/store'
+import { StoreModuleSignPlugin } from '@fdu/store-plugin-module-sign'
 
 export class Store extends StoreManager {
     // TODO

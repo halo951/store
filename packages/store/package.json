@@ -1,5 +1,5 @@
 {
-    "name": "@fdsu/store",
+    "name": "@fdu/store",
     "version": "0.3.1",
     "description": "☆ Using flat design store to solve the problem of service abstraction. Support vue2.x、vue3.x!",
     "keywords": [

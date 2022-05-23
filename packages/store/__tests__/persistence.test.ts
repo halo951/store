@@ -1,4 +1,4 @@
-import { IData, StoreManager } from '@fdsu/store'
+import { IData, StoreManager } from '@fdu/store'
 
 import { MemoryStorage } from './store/MemberStorage'
 import { TestModule } from './store/modules/TestModule'

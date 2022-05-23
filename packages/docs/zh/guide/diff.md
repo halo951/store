@@ -14,7 +14,7 @@
 
 接下来, 我们从以下
 
--   编程方式: `vuex` 采用 Options API, `@fdsu/store` 采用 Class API.
+-   编程方式: `vuex` 采用 Options API, `@fdu/store` 采用 Class API.
 -   API 方面, 借助 es 特性
     -   setter: 即 es 特性`set value(val)`. 等同于`vuex`的**Muntations**
     -   getter: 即 es 特性`get value()`. 等同于``

@@ -1,4 +1,4 @@
-import { StoreManager, IStorePlugin } from '@fdsu/store'
+import { StoreManager, IStorePlugin } from '@fdu/store'
 import { reactive } from 'vue'
 import { User2Module } from './modules/User2Module'
 import { UserModule } from './modules/UserModule'

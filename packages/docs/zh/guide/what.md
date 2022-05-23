@@ -20,16 +20,16 @@ Flat design store util, 意为**扁平化设计的 Store 工具**. 作为一款`
 
 ## 什么情况下使用?
 
-当你的项目存在以下几种情况, 建议使用`@fdsu/store`作为你的 Store 层支撑工具.
+当你的项目存在以下几种情况, 建议使用`@fdu/store`作为你的 Store 层支撑工具.
 
--   项目采用 class 方式定义组件脚本 (尤其是这种情况, 建议从`vuex`切换到`@fdsu/store`)
+-   项目采用 class 方式定义组件脚本 (尤其是这种情况, 建议从`vuex`切换到`@fdu/store`)
 -   只想通过引入 Store, 来解决**服务抽象**, **全局状态管理** 问题.
 -   需要处理复杂的数据持久化问题, 如: 需要持久化某个模块、需要持久化某个字段.
 -   前端新人, 想通过 Store 模式来解决项目管理问题, 但苦于`vuex`,`pinia`等框架功能复杂, 学习成本高导致很难上手.
 
 ## 特性
 
-`@fdsu/store` 作为`Store`的支撑工具。 由 3 部分组成, 分别为: `Store`、`Adapter`(适配器)、`Plugin` (插件)
+`@fdu/store` 作为`Store`的支撑工具。 由 3 部分组成, 分别为: `Store`、`Adapter`(适配器)、`Plugin` (插件)
 
 -   **Store**
 

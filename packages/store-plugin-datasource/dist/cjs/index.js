@@ -1,4 +1,4 @@
-/** @fdsu/store-plugin-datasource
+/** @fdu/store-plugin-datasource
  *
  * @author halo951
  * @license MIT

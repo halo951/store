@@ -1,4 +1,4 @@
-import { StoreManager, IStoreAdapter } from '@fdsu/store'
+import { StoreManager, IStoreAdapter } from '@fdu/store'
 import { Store } from './store'
 
 describe('test.adapter', () => {

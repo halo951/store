@@ -1,6 +1,6 @@
 <template>
     <div class="app">
-        <header>@fdsu/store</header>
+        <header>@fdu/store</header>
         <section>
             <Catalog />
             <Layout />

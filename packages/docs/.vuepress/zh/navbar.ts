@@ -15,7 +15,7 @@ export const navbar: NavbarConfig = [
     {
         text: '链接',
         children: [
-            { text: 'NPM', link: 'https://www.npmjs.com/package/@fdsu/store' },
+            { text: 'NPM', link: 'https://www.npmjs.com/package/@fdu/store' },
             { text: 'Issue', link: 'https://github.com/halo951/store/issues' },
             { text: `v${pkg.version}`, link: 'https://github.com/halo951/store/CHANGELOG.md' }
         ]

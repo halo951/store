@@ -1,9 +1,9 @@
 {
-    "name": "@fdsu/store-plugin-module-hash",
+    "name": "@fdu/store-plugin-namespace",
     "version": "0.3.1",
-    "description": "Store Plugin: 提供 Vue DevTool 支持.",
+    "description": "Store Plugin: 提供 Store 命名空间能力, 解决持久化字段冲突问题.",
     "keywords": [
-        "@fdsu/store",
+        "@fdu/store",
         "StoreModuleHashPlugin"
     ],
     "main": "dist/cjs/index.js",
@@ -32,7 +32,7 @@
         "crypto-js": "^4.1.1"
     },
     "peerDependencies": {
-        "@fdsu/store": "*"
+        "@fdu/store": "*"
     },
     "devDependencies": {
         "@types/crypto-js": "^4.1.1"

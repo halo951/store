@@ -2,15 +2,15 @@
 
 > 推荐使用 **[Yarn](https://yarnpkg.com/getting-started/install)**
 
-`@fdsu/store` 提供 **cjs**、 **es** 两种模式导入, 在 ts 项目中使用才能发挥出工具的最佳效果!
+`@fdu/store` 提供 **cjs**、 **es** 两种模式导入, 在 ts 项目中使用才能发挥出工具的最佳效果!
 
--   安装 `@fdsu/store`
+-   安装 `@fdu/store`
 
 <CodeGroup>
   <CodeGroupItem title="YARN">
 
 ```bash:no-line-numbers
-yarn add @fdsu/store
+yarn add @fdu/store
 ```
 
   </CodeGroupItem>
@@ -18,7 +18,7 @@ yarn add @fdsu/store
   <CodeGroupItem title="NPM" active>
 
 ```bash:no-line-numbers
-npm install @fdsu/store
+npm install @fdu/store
 ```
 
   </CodeGroupItem>
@@ -30,7 +30,7 @@ npm install @fdsu/store
   <CodeGroupItem title="Vue2.x">
 
 ```bash:no-line-numbers
-yarn add @fdsu/store-adapter-vue2
+yarn add @fdu/store-adapter-vue2
 ```
 
   </CodeGroupItem>
@@ -38,7 +38,7 @@ yarn add @fdsu/store-adapter-vue2
   <CodeGroupItem title="Vue3.x" active>
 
 ```bash:no-line-numbers
-yarn add @fdsu/store-adapter-vue3
+yarn add @fdu/store-adapter-vue3
 ```
 
   </CodeGroupItem>

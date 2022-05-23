@@ -1,9 +1,9 @@
 {
-    "name": "@fdsu/store-adapter-vue2",
+    "name": "@fdu/store-adapter-vue2",
     "version": "0.3.1",
     "description": "Store Adapter: 提供 vue2 响应式支持",
     "keywords": [
-        "@fdsu/store",
+        "@fdu/store",
         "StoreVue2Adapter"
     ],
     "main": "dist/cjs/index.js",
@@ -30,7 +30,7 @@
     },
     "dependencies": {},
     "peerDependencies": {
-        "@fdsu/store": "*",
+        "@fdu/store": "*",
         "vue": "^2.0.0 || <3.0.0"
     },
     "devDependencies": {

@@ -1,12 +1,12 @@
 # 安装
 
-在项目中 `@fdsu/store` 一般由 `Store`, `Adapter(适配器)`, `Plugin(插件)` 三部分组成。 其中, `Adapter` 提供不同框架下的响应式支持, `Plugin` 提供 Store 能力扩展。
+在项目中 `@fdu/store` 一般由 `Store`, `Adapter(适配器)`, `Plugin(插件)` 三部分组成。 其中, `Adapter` 提供不同框架下的响应式支持, `Plugin` 提供 Store 能力扩展。
 
 ## 安装核心依赖
 
 ```bash
 
-yarn add @fdsu/store
+yarn add @fdu/store
 
 ```
 
@@ -17,10 +17,10 @@ yarn add @fdsu/store
 ```bash
 
 # vue3.x
-yarn add @fdsu/store-adapter-vue3
+yarn add @fdu/store-adapter-vue3
 
 # vue2.x
-yarn add @fdsu/store-adapter-vue2
+yarn add @fdu/store-adapter-vue2
 
 
 # react | todo 开发中

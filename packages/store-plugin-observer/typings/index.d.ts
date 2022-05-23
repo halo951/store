@@ -1,4 +1,4 @@
-import type { IData, IStorePlugin, StoreModule } from '@fdsu/store/src/index';
+import type { IData, IStorePlugin, StoreModule } from '@fdu/store';
 import { EObserverEvent, IRegisterActionAfterOptions, IRegisterActionBeforeOptions, IRegisterCommitFilterOptions, IRegisterPatchFilterOptions, IStoreObserverOptions } from './intf/event';
 /** Store观察者插件
  *

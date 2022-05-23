@@ -1,6 +1,6 @@
-# @fdsu/store-plugin-encrypt
+# @fdu/store-plugin-encrypt
 
-[![npm version](https://badge.fury.io/js/@fdsu/store-plugin-encrypt.svg)](https://badge.fury.io/js/@fdsu/store-plugin-encrypt)
+[![npm version](https://badge.fury.io/js/@fdu/store-plugin-encrypt.svg)](https://badge.fury.io/js/@fdu/store-plugin-encrypt)
 
 ## 功能
 
@@ -18,7 +18,7 @@
 
 ```bash
 
-yarn add @fdsu/store-plugin-encrypt
+yarn add @fdu/store-plugin-encrypt
 
 ```
 
@@ -28,7 +28,7 @@ yarn add @fdsu/store-plugin-encrypt
   <CodeGroupItem title="推荐">
 
 ```typescript
-import { StoreManager } from '@fdsu/store'
+import { StoreManager } from '@fdu/store'
 import { StoreEncryptPlugin } from '@fsdu/store-plugin-encrypt'
 
 export default class Store extends StoreManager {}
@@ -42,7 +42,7 @@ export const store: Store = new Store({
   <CodeGroupItem title="在 Class 中定义">
 
 ```typescript
-import { StoreManager } from '@fdsu/store'
+import { StoreManager } from '@fdu/store'
 import { StoreEncryptPlugin } from '@fsdu/store-plugin-encrypt'
 
 export default class Store extends StoreManager {

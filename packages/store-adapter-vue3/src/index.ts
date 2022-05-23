@@ -1,5 +1,5 @@
 import { App as VueApp, reactive } from 'vue-demi'
-import type { StoreManager, IStoreAdapter } from '@fdsu/store'
+import type { StoreManager, IStoreAdapter } from '@fdu/store'
 
 export const storeSymbol = Symbol('$store')
 

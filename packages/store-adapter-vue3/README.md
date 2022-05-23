@@ -1,22 +1,54 @@
-# @fdsu/store
+![npm](https://img.shields.io/npm/dw/@fdu/store-adapter-vue3.svg)
+[![GitHub stars](https://img.shields.io/github/stars/halo951/store.svg?style=social&label=@fdu/store)](https://github.com/halo951/store)
+[![npm version](https://badge.fury.io/js/@fdu/store-adapter-vue3.svg)](https://badge.fury.io/js/@fdu/store-adapter-vue3)
 
-[![npm version](https://badge.fury.io/js/@fdsu/store.svg)](https://badge.fury.io/js/@fdsu/store)
+# @fdu/store-adapter-vue3
+
+**Docs: [http://store.cp0.team](http://store.dtime.fun)**
 
 ## About
 
-> 这个库, 我把它定义为前端面向业务抽象的一个支撑工具. 主要应对全局变量(如: userInfo)维护, 及复杂业务解耦 (如: 支付场景, 业务流程).
-
--   core: 面向业务逻辑抽象的状态管理工具
--   support: vue2.x, vue3.x
--   feature: vuex 状态管理在 **class api** 范式下的替代工具, 优化面向类编程的友好度.
--   min: 极简, 核心代码仅 2kb.
--   design: 扁平化设计、插件化、默认集成 Storage 接口.
-
-## Libary [http://www.baidu.com](http://www.baidu.com)
+-   提供 `@fdu/store` 在 vue3.x \*\*环境下响应式支持.
+-   Support `@fdu/store` reactive apply into Vue3.x.
 
 ## Usage
 
-## Road Map
+### 1. 安装 | install
 
--   增加 react 的 adapter,
--   补全缺少的 vue-devtool actions 调用的 timeline event.
+```cmd
+yarn add @fdu/store-adapter-vue3
+
+# or
+
+npm install @fdu/store-adapter-vue3
+```
+
+### 2. 配置 | configure to Store
+
+```typescript
+import { Vue3Adapter } from '@fdu/store-adapter-vue3'
+// define Store
+class Store extends StoreManager {}
+
+// create
+const store = new Store({
+    adapter: new Vue3Adapter() // usage
+})
+
+// Vue.use
+Vue.use(store)
+```
+
+### 3. Options
+
+```typescript
+export interface IStoreAdapterOptions {
+    /** 作为option api的全局变量名称 */
+    globalPropertyKey: '$store' | string
+}
+```
+
+## FAQ
+
+Q. 响应式实现机制?
+A: 通过将 store['cache']数据源通过`reactive`注册为可观测变量, 实现响应式效果.

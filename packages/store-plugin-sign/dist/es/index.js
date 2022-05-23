@@ -1,4 +1,4 @@
-/** @fdsu/store-plugin-module-hash
+/** @fdu/store-plugin-module-hash
  *
  * @author halo951
  * @license MIT

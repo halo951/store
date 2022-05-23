@@ -1,6 +1,6 @@
-# @fdsu/store-plugin-listen
+# @fdu/store-plugin-listen
 
-[![npm version](https://badge.fury.io/js/@fdsu/store-plugin-listen.svg)](https://badge.fury.io/js/@fdsu/store-plugin-listen)
+[![npm version](https://badge.fury.io/js/@fdu/store-plugin-listen.svg)](https://badge.fury.io/js/@fdu/store-plugin-listen)
 
 ## About
 

@@ -2,4 +2,4 @@
 
 ## 在项目中的 Store 架构
 
-## @fdsu/store 架构图
+## @fdu/store 架构图

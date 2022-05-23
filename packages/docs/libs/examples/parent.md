@@ -52,7 +52,7 @@ export class Store extends StoreManager {
 ### 2. 借助 observer 工具, 注册状态变化事件
 
 ```typescript
-import { StoreObserverPlugin } from '@fdsu/store-plugin-observer'
+import { StoreObserverPlugin } from '@fdu/store-plugin-observer'
 export const store = new Store({
     plugins: [
         // 注: 也可以在构造函数这里, 注册全局事件, 但影响代码美观, 建议还是通过

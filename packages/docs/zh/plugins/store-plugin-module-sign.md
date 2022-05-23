@@ -1,6 +1,6 @@
-# @fdsu/store-plugin-module-sign
+# @fdu/store-plugin-module-sign
 
-[![npm version](https://badge.fury.io/js/@fdsu/store-plugin-module-sign.svg)](https://badge.fury.io/js/@fdsu/store-plugin-module-sign)
+[![npm version](https://badge.fury.io/js/@fdu/store-plugin-module-sign.svg)](https://badge.fury.io/js/@fdu/store-plugin-module-sign)
 
 ## 功能
 
@@ -22,7 +22,7 @@
 
 ```bash
 
-yarn add @fdsu/store-plugin-module-sign
+yarn add @fdu/store-plugin-module-sign
 
 ```
 
@@ -32,7 +32,7 @@ yarn add @fdsu/store-plugin-module-sign
   <CodeGroupItem title="推荐">
 
 ```typescript
-import { StoreManager } from '@fdsu/store'
+import { StoreManager } from '@fdu/store'
 import { StoreModuleSignPlugin } from '@fsdu/store-plugin-module-sign'
 
 export default class Store extends StoreManager {}
@@ -50,7 +50,7 @@ export const store: Store = new Store({
   <CodeGroupItem title="在 Class 中定义">
 
 ```typescript
-import { StoreManager } from '@fdsu/store'
+import { StoreManager } from '@fdu/store'
 import { StoreModuleSignPlugin } from '@fsdu/store-plugin-module-sign'
 
 export default class Store extends StoreManager {

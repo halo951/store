@@ -1,6 +1,6 @@
-import { StoreManager, StoreModule } from '@fdsu/store'
-import { StoreEncryptPlugin } from '@fdsu/store-plugin-encrypt'
-import { StoreModuleHashPlugin } from '@fdsu/store-plugin-module-hash'
+import { StoreManager, StoreModule } from '@fdu/store'
+import { StoreEncryptPlugin } from '@fdu/store-plugin-encrypt'
+import { StoreModuleHashPlugin } from '@fdu/store-plugin-module-hash'
 
 /** 内存模拟缓存功能 */
 class MemoryStorage implements Storage {

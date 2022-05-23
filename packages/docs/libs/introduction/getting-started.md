@@ -1,8 +1,8 @@
 # 新手上路
 
-> 此处, 以 vue3.x 为例. 讲解 `@fdsu/store` 的基础使用.
+> 此处, 以 vue3.x 为例. 讲解 `@fdu/store` 的基础使用.
 
-在`@fdsu/store`中, Store概念的核心, 在于**管理**和**抽象**. 在一个 `Store` 下面, 可以存在多个不同定义
+在`@fdu/store`中, Store概念的核心, 在于**管理**和**抽象**. 在一个 `Store` 下面, 可以存在多个不同定义
 
 
 ##
@@ -10,19 +10,19 @@
 -   安装核心依赖
 
 ```cmd
-yarn add @fdsu/store
+yarn add @fdu/store
 # or
-npm install @fdsu/store -i
+npm install @fdu/store -i
 ```
 
 -   安装适配器 (响应式支持)
 
 ```cmd
 # vue2
-yarn add @fdsu/store-adapter-vue2
+yarn add @fdu/store-adapter-vue2
 
 # vue3
-yarn add @fdsu/store-adapter-vue3
+yarn add @fdu/store-adapter-vue3
 
 ```
 
@@ -49,7 +49,7 @@ yarn add @fdsu/store-adapter-vue3
 > 推荐格式, 请参考: `playground`
 
 ```typescript
-import { StoreManager, StoreModule } from '@fdsu/store'
+import { StoreManager, StoreModule } from '@fdu/store'
 
 /** 定义 Store */
 export class Store extends StoreManager {}

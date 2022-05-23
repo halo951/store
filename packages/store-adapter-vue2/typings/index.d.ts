@@ -1,5 +1,5 @@
 import type Vue2 from 'vue';
-import type { StoreManager, IStoreAdapter } from '@fdsu/store';
+import type { StoreManager, IStoreAdapter } from '@fdu/store';
 export interface IStoreAdapterOptions {
     globalPropertyKey: '$store' | string;
 }

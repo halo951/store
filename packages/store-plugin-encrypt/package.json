@@ -1,9 +1,9 @@
 {
-    "name": "@fdsu/store-plugin-encrypt",
+    "name": "@fdu/store-plugin-encrypt",
     "version": "0.3.1",
     "description": "Store Plugin: 提供 Vue DevTool 支持.",
     "keywords": [
-        "@fdsu/store",
+        "@fdu/store",
         "StoreEncryptPlugin"
     ],
     "main": "dist/cjs/index.js",
@@ -32,7 +32,7 @@
         "crypto-js": "^4.1.1"
     },
     "peerDependencies": {
-        "@fdsu/store": "*"
+        "@fdu/store": "*"
     },
     "devDependencies": {
         "@types/crypto-js": "^4.1.1"

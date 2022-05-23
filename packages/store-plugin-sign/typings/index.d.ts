@@ -1,4 +1,4 @@
-import type { IStorePlugin } from '@fdsu/store/src/index';
+import type { IStorePlugin } from '@fdu/store';
 /** plugin options */
 export interface IStoreModuleHashOptions {
     /** store module 数据持久化前缀 */

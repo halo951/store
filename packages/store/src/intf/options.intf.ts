@@ -13,7 +13,7 @@ export interface IStoreOptions {
      *
      * @description 提供不同框架/版本下 响应式支持.
      *
-     * @libs @fdsu/store-adapter-vue2 | @fdsu/store-adapter-vue3
+     * @libs @fdu/store-adapter-vue2 | @fdu/store-adapter-vue3
      */
     adapter?: IStoreAdapter
 

@@ -1,9 +1,9 @@
 {
-    "name": "@fdsu/store-plugin-observer",
+    "name": "@fdu/store-plugin-observer",
     "version": "0.3.1",
     "description": "面向 Class API 的 Vue Store",
     "keywords": [
-        "@fdsu/store",
+        "@fdu/store",
         "StoreObserverPlugin"
     ],
     "main": "dist/cjs/index.js",

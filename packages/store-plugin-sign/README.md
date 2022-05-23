@@ -1,6 +1,6 @@
-# @fdsu/store
+# @fdu/store-plugin-sign
 
-[![npm version](https://badge.fury.io/js/@fdsu/store.svg)](https://badge.fury.io/js/@fdsu/store)
+[![npm version](https://badge.fury.io/js/@fdu/store.svg)](https://badge.fury.io/js/@fdu/store)
 
 ## About
 

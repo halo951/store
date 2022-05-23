@@ -1,6 +1,6 @@
-# @fdsu/store-plugin-devtool
+# @fdu/store-plugin-devtool
 
-[![npm version](https://badge.fury.io/js/@fdsu/store-plugin-devtool.svg)](https://badge.fury.io/js/@fdsu/store-plugin-devtool)
+[![npm version](https://badge.fury.io/js/@fdu/store-plugin-devtool.svg)](https://badge.fury.io/js/@fdu/store-plugin-devtool)
 
 ## 功能
 
@@ -14,7 +14,7 @@
 
 ```bash
 
-yarn add @fdsu/store-plugin-devtool
+yarn add @fdu/store-plugin-devtool
 
 ```
 
@@ -24,7 +24,7 @@ yarn add @fdsu/store-plugin-devtool
   <CodeGroupItem title="推荐">
 
 ```typescript
-import { StoreManager } from '@fdsu/store'
+import { StoreManager } from '@fdu/store'
 import { StoreDevtoolPlugin } from '@fsdu/store-plugin-devtool'
 
 export default class Store extends StoreManager {}
@@ -50,7 +50,7 @@ export const store: Store = new Store({
   <CodeGroupItem title="在 Class 中定义">
 
 ```typescript
-import { StoreManager } from '@fdsu/store'
+import { StoreManager } from '@fdu/store'
 import { StoreDevtoolPlugin } from '@fsdu/store-plugin-devtool'
 
 export default class Store extends StoreManager {

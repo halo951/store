@@ -1,6 +1,6 @@
-import { IStorePlugin, StoreManager } from '@fdsu/store/src/index'
+import { IStorePlugin, StoreManager } from '@fdu/store'
 import { TestModule } from './modules/TestModule'
-import { StoreDatasourcePlugin } from '@fdsu/store-plugin-datasource'
+import { StoreDatasourcePlugin } from '@fdu/store-plugin-datasource'
 
 export class Store extends StoreManager {
     plugin: Array<IStorePlugin> = [

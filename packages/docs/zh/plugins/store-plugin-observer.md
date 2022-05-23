@@ -1,6 +1,6 @@
 # @fsdu/store-plugin-observer
 
-[![npm version](https://badge.fury.io/js/@fdsu/store-plugin-observer.svg)](https://badge.fury.io/js/@fdsu/store-plugin-observer)
+[![npm version](https://badge.fury.io/js/@fdu/store-plugin-observer.svg)](https://badge.fury.io/js/@fdu/store-plugin-observer)
 
 ## 功能
 
@@ -31,7 +31,7 @@
 
 ```bash
 
-yarn add @fdsu/store-plugin-observer
+yarn add @fdu/store-plugin-observer
 
 ```
 
@@ -43,7 +43,7 @@ yarn add @fdsu/store-plugin-observer
   <CodeGroupItem title="推荐">
 
 ```typescript
-import { StoreManager } from '@fdsu/store'
+import { StoreManager } from '@fdu/store'
 import { StoreObserverPlugin } from '@fsdu/store-plugin-observer'
 
 export default class Store extends StoreManager {}
@@ -57,7 +57,7 @@ export const store: Store = new Store({
   <CodeGroupItem title="在 Class 中定义">
 
 ```typescript
-import { StoreManager } from '@fdsu/store'
+import { StoreManager } from '@fdu/store'
 import { StoreObserverPlugin } from '@fsdu/store-plugin-observer'
 
 export default class Store extends StoreManager {

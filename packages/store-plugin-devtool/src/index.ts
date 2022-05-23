@@ -1,5 +1,5 @@
 import type { Vue2, App as VueApp } from 'vue-demi'
-import type { IData, IStorePlugin, IStoreCache, StoreManager, StoreModule } from '@fdsu/store/src/index'
+import type { IData, IStorePlugin, IStoreCache, StoreManager, StoreModule } from '@fdu/store'
 
 import {
     CustomInspectorNode,
@@ -51,7 +51,7 @@ interface IActionLog {
     res?: any
 }
 
-/** @fdsu/store vue-devtool 支持
+/** @fdu/store vue-devtool 支持
  *
  * @description 基于 vuejs/devtool 6.x 版本实现
  * @support

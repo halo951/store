@@ -1,4 +1,4 @@
-/** @fdsu/store-plugin-encrypt
+/** @fdu/store-plugin-encrypt
  *
  * @author halo951
  * @license MIT

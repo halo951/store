@@ -1,6 +1,6 @@
-# @fdsu/store-plugin-datasource
+# @fdu/store-plugin-datasource
 
-[![npm version](https://badge.fury.io/js/@fdsu/store-plugin-datasource.svg)](https://badge.fury.io/js/@fdsu/store-plugin-datasource)
+[![npm version](https://badge.fury.io/js/@fdu/store-plugin-datasource.svg)](https://badge.fury.io/js/@fdu/store-plugin-datasource)
 
 ## 功能
 
@@ -10,7 +10,7 @@
 
 ```bash
 
-yarn add @fdsu/store-plugin-datasource
+yarn add @fdu/store-plugin-datasource
 
 ```
 
@@ -20,7 +20,7 @@ yarn add @fdsu/store-plugin-datasource
   <CodeGroupItem title="推荐">
 
 ```typescript
-import { StoreManager } from '@fdsu/store'
+import { StoreManager } from '@fdu/store'
 import { StoreDatasourcePlugin, IStoreCacheDataProxy } from '@fsdu/store-plugin-datasource'
 
 export default class Store extends StoreManager {}
@@ -42,7 +42,7 @@ export const store: Store = new Store({
   <CodeGroupItem title="在 Class 中定义">
 
 ```typescript
-import { StoreManager } from '@fdsu/store'
+import { StoreManager } from '@fdu/store'
 import { StoreDatasourcePlugin, IStoreCacheDataProxy } from '@fsdu/store-plugin-datasource'
 
 export default class Store extends StoreManager {

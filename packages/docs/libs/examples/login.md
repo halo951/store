@@ -87,7 +87,7 @@ export class UserModule extends StoreModule<IUserModel> {
 -   Store.ts
 
 ```typescript
-import { StoreManager } from '@fdsu/store'
+import { StoreManager } from '@fdu/store'
 import { UserModule } from './modules/UserModule'
 
 export class Store extends StoreManager {

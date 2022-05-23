@@ -21,8 +21,8 @@ export default defineUserConfig({
     head: [
         // 等找个设计的伙计帮忙搞个logo再塞进去吧.
         ['link', { rel: 'icon', href: '/logo.png' }],
-        ['meta', { name: 'application-name', content: '@fdsu/store' }],
-        ['meta', { name: 'apple-mobile-web-app-title', content: '@fdsu/store' }],
+        ['meta', { name: 'application-name', content: '@fdu/store' }],
+        ['meta', { name: 'apple-mobile-web-app-title', content: '@fdu/store' }],
         ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
         ['meta', { name: 'msapplication-TileColor', content: '#3eaf7c' }],
         ['meta', { name: 'theme-color', content: '#3eaf7c' }]

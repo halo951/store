@@ -15,7 +15,7 @@ sidebar: auto
 
 ## Notes
 
--   **@fdsu/store-adapter-react**
+-   **@fdu/store-adapter-react**
 
     -   状态: 进行中
     -   react 集成已经验证过可行。目前, 主要因为 subscription 能力还没有实现, 所以导致 react 的 adapter 还没搞出来.

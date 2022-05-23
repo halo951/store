@@ -1,4 +1,4 @@
-import { IStoreAdapter, IStorePlugin, StoreManager } from '@fdsu/store'
+import { IStoreAdapter, IStorePlugin, StoreManager } from '@fdu/store'
 import type { Vue2, App as VueApp } from 'vue-demi'
 
 import { TestModule } from './store/modules/TestModule'

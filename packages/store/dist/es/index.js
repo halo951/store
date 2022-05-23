@@ -1,4 +1,4 @@
-/** @fdsu/store
+/** @fdu/store
  *
  * @author halo951
  * @license MIT

@@ -1,4 +1,4 @@
-import { StoreManager } from '@fdsu/store'
+import { StoreManager } from '@fdu/store'
 
 import { TestModule } from './modules/TestModule'
 

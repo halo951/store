@@ -4,11 +4,11 @@
 
 ## 对比流行的状态管理工具
 
-> `@fdsu/store` 采用 Class API, 且大多数能力都由 ts 语言提供。相比于其他一些状态管理工具, 少了很多不必要的 API.
+> `@fdu/store` 采用 Class API, 且大多数能力都由 ts 语言提供。相比于其他一些状态管理工具, 少了很多不必要的 API.
 
 1. 首先, 简单进行一下 API 对比. 这里仅对比 `vuex`, `pinia`. react 等其他场景依次类推.
 
-| api   | vuex  | pinia | dva   | @fdsu/store |
+| api   | vuex  | pinia | dva   | @fdu/store |
 | ----- | ----- | ----- | ----- | ---------- |
 | state | state | state | state | initData   |
 |       |       |       |       |            |
@@ -33,11 +33,11 @@
 
 ## 5. API 稳定性
 
-首先, 在这里承诺`@fdsu/store`核心的 API 是不会变得,
+首先, 在这里承诺`@fdu/store`核心的 API 是不会变得,
 
 ## 5. 周边生态
 
--   @fdsu/store
+-   @fdu/store
 
 -   dva
 

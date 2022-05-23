@@ -1,4 +1,4 @@
-import { StoreModule } from '@fdsu/store'
+import { StoreModule } from '@fdu/store'
 export interface IUserModel {
     token: string | null
 }
