@@ -1,6 +1,6 @@
-import type { StoreManager, IStorePlugin, IData } from '@fdu/store';
+import type { StoreManager, IStorePlugin, IData } from '@fdu/store'
 export interface IStoreCacheDataProxy {
-    [moduleName: string]: IData;
+    [moduleName: string]: IData
 }
 export interface IDatasourcePlugin {
     /** 自定义数据源工厂方法
@@ -9,11 +9,11 @@ export interface IDatasourcePlugin {
      *
      * @returns 处理后的数据源对象
      */
-    factory: (origin: IStoreCacheDataProxy) => IStoreCacheDataProxy;
+    factory: (origin: IStoreCacheDataProxy) => IStoreCacheDataProxy
 }
 /** 自定义数据源插件  */
 export declare class StoreDatasourcePlugin implements IStorePlugin {
-    options: IDatasourcePlugin;
-    constructor(options: IDatasourcePlugin);
-    onBefore(store: StoreManager): void;
+    options: IDatasourcePlugin
+    constructor(options: IDatasourcePlugin)
+    onBefore(store: StoreManager): void
 }

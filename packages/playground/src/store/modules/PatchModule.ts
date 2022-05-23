@@ -49,4 +49,3 @@ export class PatchModule extends StoreModule<IPatchModel, Store> {
         }
     }
 }
-

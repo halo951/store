@@ -51,4 +51,4 @@ export interface IStoreAdapterOptions {
 ## FAQ
 
 Q. 响应式实现机制?
-A: 通过将store['cache']数据源通过`observable`注册为可观测变量, 实现响应式效果.
+A: 通过将 store['cache']数据源通过`observable`注册为可观测变量, 实现响应式效果.

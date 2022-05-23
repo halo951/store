@@ -1,21 +1,21 @@
-import type { IStorePlugin } from '@fdu/store';
+import type { IStorePlugin } from '@fdu/store'
 /** plugin options */
 export interface IStoreModuleHashOptions {
     /** store module 数据持久化前缀 */
-    prefix?: string;
+    prefix?: string
     /** store module 数据持久化后缀 */
-    suffix?: string;
+    suffix?: string
     /** 对 持久化存储的 module key, 进行 */
-    hash?: boolean | 'simple' | 'lang';
+    hash?: boolean | 'simple' | 'lang'
 }
 /** 自定义模块签名插件 */
 export declare class StoreModuleHashPlugin implements IStorePlugin {
-    options: IStoreModuleHashOptions;
-    constructor(options: IStoreModuleHashOptions);
+    options: IStoreModuleHashOptions
+    constructor(options: IStoreModuleHashOptions)
     /** 自定义模块签名
      *
      * @description 用于自定义持久化模块签名
      * @returns {string} 转换过的签名
      */
-    transformSign(moduleName: string, originName?: string): string;
+    transformSign(moduleName: string, originName?: string): string
 }
