@@ -3,8 +3,7 @@
 > 备选名: fdesgin flat-design flat-design-store
 
 -   introduction - 介绍
-    -   What is? - 简介
-        -
+    -   ## What is? - 简介
         -   特性
     -   install - 安装
     -   Getting Started - 简单使用
