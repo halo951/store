@@ -8,7 +8,7 @@
 >
 > flat design store util, using flat design store to solve the problem of service abstraction and global state mananger.
 
-** Docs: [http://store.cp0.team](http://store.dtime.fun)**
+**Docs: [http://store.cp0.team](http://store.dtime.fun)**
 
 ## Design
 
