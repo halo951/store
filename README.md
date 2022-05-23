@@ -37,8 +37,6 @@
     - (@fdu/store-plugin-datasource): 提供自定义数据源接口, 用于orm状态数据映射. (未验证)
 
 - **学习**: 了解 EsNext特性, 及 ts class 即可上手.
-- **ide**: 推荐使用vscode, 支持 ts 类型推断即可.
-- **插件化**:
 
 
 
