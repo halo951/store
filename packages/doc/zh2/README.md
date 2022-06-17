@@ -28,4 +28,3 @@ features:
 footer: <div class='links' >MIT License | v0.x | 使用阶段, 存在任何疑问, 麻烦提交<a href='https://github.com/halo951/store/issues'>Issue</a>! </div>
 footerHtml: true
 ---
-
