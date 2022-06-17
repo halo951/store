@@ -8,16 +8,15 @@ export const sidebar: SidebarConfig = {
     '/zh/': [
         {
             text: '指南',
-            children: [
-                '/zh/guide/what',
-                '/zh/guide/install',
-                '/zh/guide/getting-started',
-                '/zh/guide/framework',
-                '/zh/guide/diff'
-            ]
+            children: ['/zh/guide', '/zh/guide/getting-started', '/zh/guide/what-is-store', '/zh/guide/framework']
         },
         {
             text: '核心概念',
+            collapsible: true,
+            children: ['/zh/core/manager', '/zh/core/module', '/zh/core/adapter']
+        },
+        {
+            text: '组合式API',
             collapsible: true,
             children: ['/zh/core/manager', '/zh/core/module', '/zh/core/adapter']
         },

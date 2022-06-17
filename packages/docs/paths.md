@@ -1,62 +1,46 @@
 # xx
 
-> 备选名: fdesgin flat-design flat-design-store
+-   简介
 
--   introduction - 介绍
-    -   ## What is? - 简介
-        -   特性
-    -   install - 安装
-    -   Getting Started - 简单使用
-    -   Diff - 对比 (工具对比, API 范式对比)
-    -   framework - 架构设计
--   core - Core Concepts | 核心概念
-    -   coding - 如何组织代码
-    -   StoreManager - store 仓库
-    -   StoreModule - store 模块
-        -   initData - 初始化数据源
-        -   PERSISTENCE_KEYS - 指定字段持久化
-        -   $commit/$patch - 状态变更
-        -   $clear - 清除/还原数据
-        -   parent - 父组件(store 节点)
--   desgin - 设计理念
-    -   flat design - 简单的/扁平化设计
-    -   traces - 可追踪/有迹可循的
-    -   primordial - 尽可能多的利用原生 API
-    -   small - 精简/极小
-    -   ext - 扩展性
--   plugins - 插件
-    -   module hash - 模块持久化预处理
-    -   encrypt - 持久化数据加密
-    -   ViteHmr - vite 热更新插件
-    -   devtool - vue-devtool 工具支持
-    -   observer - 观察者模式 (action/$commit 行为监控)
--   core - 设计说明
-    -   framework - 架构模型
-    -   life - 生命周期模型
-    -   adapter - 适配器
-    -   inject - StoreModule 能力注入
-    -   size - 包体积
--   contribute - 贡献
-    -   impl - 了解 @fdu/store 实现原理.
-    -   adapter - 扩展适配器
-    -   plugin - 扩展插件
-    -   proposal - 改进&建议
--   API Reference - api 描述
+    -   特性
+    -   引导
+    -   框架设计
+    -   与 vuex 对比
 
-    -   store -
-    -   IStorePlugin
+-   核心概念
 
--   答疑
-    -   关于 `composition api` 设计
-    -   对于 Ts 装饰器等具备不确定性提案的想法
-    -   为什么移除 `dispatch`
-    -   action 的行为监控设计
-    -   观察者模式
+    -   Store
+        -   应用模型
+        -   Store 架构
+        -   state
+        -   getter/setter
+        -   actions
+    -   StoreManager
+    -   StoreModule
+    -   适配器机制
+    -   插件机制
+
+-   适配器
+
+    -   vue2.x
+    -   vue3.x
+    -   react
+    -   小程序
+    -   angualr
+
+-   插件 (简介, 用途/场景, 使用引导, 注意事项)
+
+    -   namespace
+    -   encrypt
+    -   devtool
+    -   observer
+    -   datasource
     -
--   example - 示例代码
-    -   花式使用
-        -   createStore
-        -   多 Store
-        -   通过 Bridge 桥接外部数据源
-        -
--
+
+-   学习路线
+
+    -
+
+-   ## 示例
+
+-   ## 笔记

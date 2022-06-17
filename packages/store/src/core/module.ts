@@ -1,8 +1,9 @@
 import type { IData } from '../intf/data.intf'
 import type { Options } from 'set-value'
+import type { StoreManager } from './manager'
 
 /** StoreModule */
-export abstract class StoreModule<Data extends IData = IData, Parent = unknown> {
+export abstract class StoreModule<Data extends IData = IData, Parent = StoreManager> {
     /* options */
     private __parent__!: Parent
 

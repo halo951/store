@@ -36,15 +36,9 @@ export default defineUserConfig({
     open: false,
     shouldPrefetch: false,
     locales: {
-        '/en/': {
-            lang: 'en-us',
-            title: 'Flat Design Store Util',
-            description: 'Using flat design store to solve the problem of service abstraction. Support vue2.x、vue3.x!'
-        },
         '/zh/': {
             lang: 'zh-cn',
-            title: 'Flat Design Store Util',
-            description: '上手难度低、方便使用、容易维护的 Store 工具. '
+            title: 'Flat Design Store Util'
         }
     },
     // theme and plugins
@@ -53,10 +47,6 @@ export default defineUserConfig({
         docsDir: 'packages/docs',
         lastUpdated: false,
         locales: {
-            '/en/': {
-                selectLanguageAriaLabel: 'Languages',
-                selectLanguageName: 'English'
-            },
             '/zh/': {
                 selectLanguageText: '语言',
                 selectLanguageName: '简体中文',
