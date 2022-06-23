@@ -31,4 +31,4 @@ const store = createStore({
     user: new TestModule()
 })
 
-store.user
+store.user.a

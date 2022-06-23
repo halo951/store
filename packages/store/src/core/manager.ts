@@ -38,7 +38,28 @@ export abstract class StoreManager {
      * @support 支持 vue2.x, vue3.x, 及独立使用.
      */
     public install(app?: any): this {
-        this.init()
+        if (this.ready) return this
+        // > emit plugin binded to vue event
+        this.emit((plugin: IStorePlugin) => plugin.onBefore?.(this))
+        let model: StoreModule<IData, this>
+        // # module init
+        for (const moduleName of this.modules) {
+            model = (this as any)[moduleName]
+            // ? check initData is defined
+            requiredFunctionDefined(`$store.${moduleName}`, model, ['initData'])
+
+            // > inject
+            this.injectFactory(moduleName, model)
+
+            // init module data
+            this.prepare(moduleName, model)
+        }
+
+        this.ready = true
+
+        // emit store ready event.
+        this.emit((plugin: IStorePlugin) => plugin.onReady?.(this))
+
         // ? 支持抛开vue使用
         if (!app) return this
         // register to target use adapter. basic: vue2, vue3
@@ -66,31 +87,6 @@ export abstract class StoreManager {
             // 持久化
             this.persistence(moduleName, model)
         }
-    }
-
-    /** 初始化 */
-    private init(): void {
-        if (this.ready) return
-        // > emit plugin binded to vue event
-        this.emit((plugin: IStorePlugin) => plugin.onBefore?.(this))
-        let model: StoreModule<IData, this>
-        // # module init
-        for (const moduleName of this.modules) {
-            model = (this as any)[moduleName]
-            // ? check initData is defined
-            requiredFunctionDefined(`$store.${moduleName}`, model, ['initData'])
-
-            // > inject
-            this.injectFactory(moduleName, model)
-
-            // init module data
-            this.prepare(moduleName, model)
-        }
-
-        this.ready = true
-
-        // emit store ready event.
-        this.emit((plugin: IStorePlugin) => plugin.onReady?.(this))
     }
 
     /** calc module hash
